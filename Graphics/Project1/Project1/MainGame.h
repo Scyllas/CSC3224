@@ -9,7 +9,13 @@
 #include <Bengine/GLTexture.h>
 #include <vector>
 #include<Bengine/Window.h>
+#include<Bengine/InputManager.h>
+#include<Bengine/Timing.h>
 
+
+#include <Bengine\Camera2D.h>
+
+#include <Bengine\SpriteBatch.h>
 enum class GameState { PLAY, EXIT };
 
 class MainGame {
@@ -29,20 +35,22 @@ private:
 	void gameLoop();
 	void processInput();
 	void drawGame();
-	void calculateFPS();
 
 	Bengine::Window _window;
 	int _screenWidth;
 	int _screenHeight;
 	GameState _gameState;
 
-
-	std::vector<Bengine::Sprite*> _sprites;
-
 	Bengine::GLSLProgram _colourProgram;
+	Bengine::Camera2D _camera;
+
+	Bengine::SpriteBatch _spriteBatch;
+
+	Bengine::InputManager _inputManager;
+
+	Bengine::FpsLimiter _fpsLimiter;
 
 	float _time;
 	float _fps;
 	float _maxFPS;
-	float _frameTime;
 };
