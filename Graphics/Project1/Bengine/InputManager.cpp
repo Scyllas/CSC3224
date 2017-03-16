@@ -11,6 +11,14 @@ namespace Bengine {
 	{
 	}
 
+	void InputManager::update()	{
+
+		//loop through keymap, copying to previous keymap
+		for (auto& it : _keyMap) {
+			_previousKeyMap[it.first] = it.second;
+		}
+	}
+
 	void InputManager::pressKey(unsigned int keyID)
 	{
 
@@ -29,10 +37,30 @@ namespace Bengine {
 		_mouseCoords.y = y;
 	}
 
-	bool InputManager::isKeyPressed(unsigned int keyID)
+	bool InputManager::isKeyPressed(unsigned int keyID)	{
+
+		//if pressed this frame, but not last
+		if (isKeyDown(keyID) == true && wasKeyDown(keyID) == false) {
+			return true;
+		}
+		return false;
+	}
+
+	bool InputManager::isKeyDown(unsigned int keyID)
 	{
 		auto it = _keyMap.find(keyID);
 		if (it != _keyMap.end()) {
+			return it->second;
+		}
+		else {
+			return false;
+		}
+	}
+
+	bool InputManager::wasKeyDown(unsigned int keyID){
+
+		auto it = _previousKeyMap.find(keyID);
+		if (it != _previousKeyMap.end()) {
 			return it->second;
 		}
 		else {

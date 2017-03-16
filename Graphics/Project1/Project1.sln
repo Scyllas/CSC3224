@@ -10,6 +10,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project1", "Project1\Projec
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bengine", "Bengine\Bengine.vcxproj", "{B4BDC791-9234-4E4B-A658-8D5DB32EA25C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{150ED3F3-35D8-4DEB-B78C-704AD62E4F87}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B4BDC791-9234-4E4B-A658-8D5DB32EA25C} = {B4BDC791-9234-4E4B-A658-8D5DB32EA25C}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -34,6 +39,14 @@ Global
 		{B4BDC791-9234-4E4B-A658-8D5DB32EA25C}.Release|x64.Build.0 = Release|x64
 		{B4BDC791-9234-4E4B-A658-8D5DB32EA25C}.Release|x86.ActiveCfg = Release|Win32
 		{B4BDC791-9234-4E4B-A658-8D5DB32EA25C}.Release|x86.Build.0 = Release|Win32
+		{150ED3F3-35D8-4DEB-B78C-704AD62E4F87}.Debug|x64.ActiveCfg = Debug|x64
+		{150ED3F3-35D8-4DEB-B78C-704AD62E4F87}.Debug|x64.Build.0 = Debug|x64
+		{150ED3F3-35D8-4DEB-B78C-704AD62E4F87}.Debug|x86.ActiveCfg = Debug|Win32
+		{150ED3F3-35D8-4DEB-B78C-704AD62E4F87}.Debug|x86.Build.0 = Debug|Win32
+		{150ED3F3-35D8-4DEB-B78C-704AD62E4F87}.Release|x64.ActiveCfg = Release|x64
+		{150ED3F3-35D8-4DEB-B78C-704AD62E4F87}.Release|x64.Build.0 = Release|x64
+		{150ED3F3-35D8-4DEB-B78C-704AD62E4F87}.Release|x86.ActiveCfg = Release|Win32
+		{150ED3F3-35D8-4DEB-B78C-704AD62E4F87}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

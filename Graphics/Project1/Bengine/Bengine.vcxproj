@@ -74,6 +74,9 @@
     <LibraryPath>
     </LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)Dependencies/include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
@@ -87,7 +90,8 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <Lib>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -153,6 +157,7 @@
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteBatch.h" />
+    <ClInclude Include="SpriteFont.h" />
     <ClInclude Include="TextureCache.h" />
     <ClInclude Include="Timing.h" />
     <ClInclude Include="Vertex.h" />
@@ -170,6 +175,7 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteBatch.cpp" />
+    <ClCompile Include="SpriteFont.cpp" />
     <ClCompile Include="TextureCache.cpp" />
     <ClCompile Include="Timing.cpp" />
     <ClCompile Include="Window.cpp" />

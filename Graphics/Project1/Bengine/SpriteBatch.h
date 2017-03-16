@@ -14,8 +14,31 @@ namespace Bengine {
 		TEXTURE
 	};
 
-	struct Glyph {
+	class Glyph {
+	public:
+		Glyph() {}
+		Glyph(const glm::vec4 & destRect, const glm::vec4 & uvRect, GLuint Texture, float Depth, const ColorRGBA8 & color):
+		texture(Texture), depth(Depth)
+		{
 
+
+			topLeft.color = color;
+			topLeft.setPosition(destRect.x, destRect.y + destRect.w);
+			topLeft.setUV(uvRect.x, uvRect.y + uvRect.w);
+
+			bottomLeft.color = color;
+			bottomLeft.setPosition(destRect.x, destRect.y);
+			bottomLeft.setUV(uvRect.x, uvRect.y);
+
+			bottomRight.color = color;
+			bottomRight.setPosition(destRect.x + destRect.z, destRect.y);
+			bottomRight.setUV(uvRect.x + uvRect.z, uvRect.y);
+
+			topRight.color = color;
+			topRight.setPosition(destRect.x + destRect.z, destRect.y + destRect.w);
+			topRight.setUV(uvRect.x + uvRect.z, uvRect.y + uvRect.w);
+
+		}
 		GLuint texture;
 		float depth;
 
@@ -31,10 +54,10 @@ namespace Bengine {
 
 	public:
 
-		RenderBatch(GLuint Offset, GLuint NumVertices, GLuint Texture) : 
+		RenderBatch(GLuint Offset, GLuint NumVertices, GLuint Texture) :
 			offset(Offset),
 			numVertices(NumVertices),
-			texture(Texture){
+			texture(Texture) {
 
 		}
 
@@ -49,16 +72,16 @@ namespace Bengine {
 	public:
 		SpriteBatch();
 		~SpriteBatch();
-	
+
 		void init();
 
-		void begin( GlyphSortType sortType = GlyphSortType::TEXTURE);
+		void begin(GlyphSortType sortType = GlyphSortType::TEXTURE);
 		void end();
 
-		void draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const Color& color);
+		void draw(const glm::vec4& destRect, const glm::vec4& uvRect, GLuint texture, float depth, const ColorRGBA8& color);
 
 		void renderBatch();
-	
+
 	private:
 
 		void createRenderBatches();
@@ -75,7 +98,8 @@ namespace Bengine {
 
 		GlyphSortType _sortType;
 
-		std::vector<Glyph*> _glyphs;
+		std::vector<Glyph*> _glyphPointers;  //sorting array
+		std::vector<Glyph> _glyphs; //the actual objects
 		std::vector<RenderBatch> _renderBatches;
 	};
 
