@@ -9,8 +9,8 @@ namespace Bengine {
 	enum class GlyphSortType {
 
 		NONE,
-		FRONT_TO_BACK,
-		BACK_TO_FRONT,
+		FRONTm_TOm_BACK,
+		BACKm_TOm_FRONT,
 		TEXTURE
 	};
 
@@ -93,14 +93,14 @@ namespace Bengine {
 		static bool compareBackToFront(Glyph* a, Glyph* b);
 		static bool compareTexture(Glyph* a, Glyph* b);
 
-		GLuint _vbo;
-		GLuint _vao;
+		GLuint m_vbo = 0;
+		GLuint m_vao = 0;
 
-		GlyphSortType _sortType;
+		GlyphSortType m_sortType;
 
-		std::vector<Glyph*> _glyphPointers;  //sorting array
-		std::vector<Glyph> _glyphs; //the actual objects
-		std::vector<RenderBatch> _renderBatches;
+		std::vector<Glyph*> m_glyphPointers;  //sorting array
+		std::vector<Glyph> m_glyphs; //the actual objects
+		std::vector<RenderBatch> m_renderBatches;
 	};
 
 

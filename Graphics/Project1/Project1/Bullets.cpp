@@ -3,10 +3,10 @@
 
 
 Bullets::Bullets(glm::vec2 pos, glm::vec2 dir, float speed, int lifeTime) :
-_lifeTime(lifeTime),
-_position(pos),
-_direction(dir),
-_speed(speed) {
+m_lifeTime(lifeTime),
+m_position(pos),
+m_direction(dir),
+m_speed(speed) {
 }
 
 Bullets::~Bullets()
@@ -23,7 +23,7 @@ void Bullets::draw(Bengine::SpriteBatch & spriteBatch) {
 	color = Bengine::ColorRGBA8(255, 255, 255, 255);
 
 
-	glm::vec4 posAndSize = glm::vec4(_position.x, _position.y, 30, 30);
+	glm::vec4 posAndSize = glm::vec4(m_position.x, m_position.y, 30, 30);
 
 	spriteBatch.draw(posAndSize, uv, texture.id, 0.f, color);
 
@@ -31,9 +31,9 @@ void Bullets::draw(Bengine::SpriteBatch & spriteBatch) {
 
 bool Bullets::update() {
 
-	_position += _direction * _speed;
-	_lifeTime--;
-	if (_lifeTime == 0) {
+	m_position += m_direction * m_speed;
+	m_lifeTime--;
+	if (m_lifeTime == 0) {
 		return true;
 	}
 	else {

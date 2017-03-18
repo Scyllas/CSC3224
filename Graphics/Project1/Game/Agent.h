@@ -27,11 +27,11 @@ public:
 
 	bool collideWithAgent(Agent* agent);
 
-	void draw(Bengine::SpriteBatch& _spriteBatch);
+	void draw(Bengine::SpriteBatch& m_spriteBatch);
 
 	bool applyDamage(float damage);
 
-	glm::vec2 getPosition() const { return _position; }
+	glm::vec2 getPosition() const { return m_position; }
 protected:
 
 	void checkTilePosition(const std::vector<std::string>& levelData, 
@@ -41,9 +41,9 @@ protected:
 
 	void collideWithTile(glm::vec2 tilePos);
 
-	glm::vec2 _position;
-	float _speed;
-	Bengine::ColorRGBA8 _color;
-	float _health;
+	glm::vec2 m_position;
+	float m_speed;
+	Bengine::ColorRGBA8 m_color;
+	float m_health;
 };
 

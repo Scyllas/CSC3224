@@ -27,15 +27,15 @@ public:
 
 	void draw(Bengine::SpriteBatch& spriteBatch);
 
-	float getDamage() const { return _damage; }
+	float getDamage() const { return m_damage; }
 
 private:
 
 	bool collideWithWorld(const std::vector<std::string>& levelData);
 
-	float _damage;
-	float _speed;
-	glm::vec2 _direction;
-	glm::vec2 _position;
+	float m_damage;
+	float m_speed;
+	glm::vec2 m_direction;
+	glm::vec2 m_position;
 };
 

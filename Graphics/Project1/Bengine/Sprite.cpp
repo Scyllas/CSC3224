@@ -5,32 +5,29 @@
 namespace Bengine {
 	Sprite::Sprite() {
 
-		_vboID = 0;
-
-
 	}
 
 
 	Sprite::~Sprite() {
 
-		if (_vboID != 0) {
-			glDeleteBuffers(1, &_vboID);
+		if (m_vboID != 0) {
+			glDeleteBuffers(1, &m_vboID);
 		}
 
 	}
 
 	void Sprite::init(float x, float y, float width, float height, std::string texturePath) {
 
-		_x = x;
-		_y = y;
-		_width = width;
-		_height = height;
+		m_x = x;
+		m_y = y;
+		m_width = width;
+		m_height = height;
 
-		_texture = ResourceManager::getTexture(texturePath);
+		m_texture = ResourceManager::getTexture(texturePath);
 
-		if (_vboID == 0) {
+		if (m_vboID == 0) {
 
-			glGenBuffers(1, &_vboID);
+			glGenBuffers(1, &m_vboID);
 		}
 
 		Vertex vertexData[6];
@@ -65,7 +62,7 @@ namespace Bengine {
 
 		vertexData[4].setColor(0, 255, 0, 255);
 
-		glBindBuffer(GL_ARRAY_BUFFER, _vboID);
+		glBindBuffer(GL_ARRAY_BUFFER, m_vboID);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertexData), vertexData, GL_STATIC_DRAW);
 
 
@@ -74,9 +71,9 @@ namespace Bengine {
 
 	void Sprite::draw() {
 
-		glBindTexture(GL_TEXTURE_2D, _texture.id);
+		glBindTexture(GL_TEXTURE_2D, m_texture.id);
 
-		glBindBuffer(GL_ARRAY_BUFFER, _vboID);
+		glBindBuffer(GL_ARRAY_BUFFER, m_vboID);
 
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 

@@ -28,11 +28,11 @@ public:
 
 private:
 
-	std::vector<Gun*> _guns;
-	int _currentGunIndex;
-	Bengine::InputManager* _inputManager;
-	Bengine::Camera2D* _camera;
+	std::vector<Gun*> m_guns;
+	int m_currentGunIndex = -1;
+	Bengine::InputManager* m_inputManager;
+	Bengine::Camera2D* m_camera;
 
-	std::vector<Bullet>* _bullets;
+	std::vector<Bullet>* m_bullets;
 };
 

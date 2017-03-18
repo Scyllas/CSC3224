@@ -21,13 +21,13 @@ namespace Bengine {
 		void unuse();
 
 	private:
-		int _numAttributes;
+		int m_numAttributes;
 
 		void compileShader(const std::string& filepath, GLuint id);
 
-		GLuint _programID;
-		GLuint _vertexShaderID;
-		GLuint _fragmentShaderID;
+		GLuint m_programID;
+		GLuint m_vertexShaderID;
+		GLuint m_fragmentShaderID;
 	};
 
 }

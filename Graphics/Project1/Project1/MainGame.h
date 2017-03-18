@@ -37,29 +37,29 @@ private:
 	void gameLoop();
 	void processInput();
 	void drawGame();
-	void drawHud();
+	void drawHudGfx();
 
-	Bengine::Window _window;
-	int _screenWidth;
-	int _screenHeight;
-	GameState _gameState;
+	Bengine::Window m_window;
+	int m_screenWidth = 1024;
+	int m_screenHeight = 768;
+	GameState m_gameState = GameState::PLAY;
 
-	Bengine::GLSLProgram _colourProgram;
-	Bengine::Camera2D _camera;
-	Bengine::Camera2D _hudCamera;
+	Bengine::GLSLProgram m_colourProgram;
+	Bengine::Camera2D m_camera;
+	Bengine::Camera2D m_hudCamera;
 
-	Bengine::SpriteBatch _spriteBatch;
-	Bengine::SpriteBatch _hudSpriteBatch;
+	Bengine::SpriteBatch m_spriteBatch;
+	Bengine::SpriteBatch m_hudSpriteBatch;
 
-	Bengine::InputManager _inputManager;
+	Bengine::InputManager m_inputManager;
 
-	Bengine::FpsLimiter _fpsLimiter;
+	Bengine::FpsLimiter m_fpsLimiter;
 
-	std::vector<Bullets> _bullets;
+	std::vector<Bullets> m_bullets;
 
-	float _time;
-	float _fps;
-	float _maxFPS;
+	float m_time = 0.f;
+	float m_fps;
+	float m_maxFPS = 60.f;
 
-	Bengine::SpriteFont* _spriteFont;
+	Bengine::SpriteFont* m_spriteFont;
 };

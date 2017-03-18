@@ -5,8 +5,19 @@
 #include <Bengine\Camera2D.h>
 #include <Bengine\InputManager.h>
 #include <Bengine\SpriteBatch.h>
+#include <Bengine\SpriteFont.h>
+#include <Bengine\Bengine.h>
+#include <Bengine\timing.h>
 
+#include <SDL\SDL.h>
+#include <fstream>
+#include <iostream>
 
+#include <random>
+#include <ctime>
+#include <algorithm>
+
+#include "Zombie.h"
 #include "Player.h"
 #include "Gun.h"
 #include "Level.h"
@@ -50,36 +61,40 @@ private:
 	/// Renders the game
 	void drawGame();
 
+	void drawHud();
 
 	void checkVictory();
 
-private:
 	/// Member Variables
-	Bengine::Window _window; ///< The game window
-	Bengine::GLSLProgram _textureProgram; ///< The shader program
-	Bengine::InputManager _inputManager; ///< Handles input
-	Bengine::Camera2D _camera; ///< Main Camera
-	Bengine::SpriteBatch _agentSpriteBatch; ///< Main Camera
+	Bengine::Window m_window; ///< The game window
+	Bengine::GLSLProgram m_textureProgram; ///< The shader program
+	Bengine::InputManager m_inputManager; ///< Handles input
+	Bengine::Camera2D m_camera; ///< Main Camera
+	Bengine::Camera2D m_hudCamera; ///< Main Camera
+	Bengine::SpriteBatch m_agentSpriteBatch; ///< Main Camera
+	Bengine::SpriteBatch m_hudSpriteBatch;
 
-	std::vector<Level*> _levels;//level storage
+	std::vector<Level*> m_levels;//level storage
 
-	int _screenWidth, screenHeight;
+	int m_screenWidth = 1024;
+	int	m_screenHeight = 768;
 
-	GameState _gameState;
+	float m_fps = 0;
 
-	float _fps;
+	int m_currentLevel;
 
-	int _numHumansKilled;
 
-	int _numZombiesKilled;
+	Player* m_player = nullptr;
+	std::vector<Human*> m_humans;
+	std::vector<Zombie*> m_zombies;
+	std::vector<Bullet> m_bullets;
 
-	int _numHumansConverted;
+	int m_numHumansKilled = 0;
+	int m_numZombiesKilled = 0;
+	int m_numHumansConverted = 0;
 
-	int _currentLevel;
+	Bengine::SpriteFont* m_spriteFont;
 
-	Player* _player;
-	std::vector<Human*> _humans;
-	std::vector<Zombie*> _zombies;
-	std::vector<Bullet> _bullets;
+	GameState m_gameState = GameState::PLAY;
 };
 

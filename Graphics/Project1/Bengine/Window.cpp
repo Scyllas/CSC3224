@@ -26,16 +26,16 @@ namespace Bengine {
 			flags |= SDL_WINDOW_BORDERLESS;
 		}
 
-		_sdlWindow = SDL_CreateWindow(windowName.c_str(),
+		m_sdlWindow = SDL_CreateWindow(windowName.c_str(),
 			SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 			screenWidth, screenHeight,
 			flags);
 
-		if (_sdlWindow == nullptr) {
+		if (m_sdlWindow == nullptr) {
 			fatalError("Window could not be created!");
 		}
 
-		SDL_GLContext glContext = SDL_GL_CreateContext(_sdlWindow);
+		SDL_GLContext glContext = SDL_GL_CreateContext(m_sdlWindow);
 
 		if (glContext == nullptr) {
 			fatalError("SDL_GL context could not be created");
@@ -63,6 +63,6 @@ namespace Bengine {
 
 	void Window::swapBuffer()
 	{
-		SDL_GL_SwapWindow(_sdlWindow);
+		SDL_GL_SwapWindow(m_sdlWindow);
 	}
 }

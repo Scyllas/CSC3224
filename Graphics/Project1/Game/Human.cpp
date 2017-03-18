@@ -3,8 +3,7 @@
 #include <ctime>
 #include <glm/gtx/rotate_vector.hpp>
 
-Human::Human() :
-	_frames(0)
+Human::Human()
 {
 }
 
@@ -19,16 +18,16 @@ void Human::init(float speed, glm::vec2 pos)
 
 	static std::uniform_real_distribution<float> randDir(-1.f, 1.f);
 
-	_color = Bengine::ColorRGBA8(200, 0, 200, 255);
+	m_color = Bengine::ColorRGBA8(200, 0, 200, 255);
 
 	
-	_health = 20;
-	_speed = speed;
-	_position = pos;
-	_direction = glm::vec2(randDir(randomEngine), randDir(randomEngine));
-	if (_direction.length() == 0) _direction = glm::vec2(1.f, 0.f);
+	m_health = 20;
+	m_speed = speed;
+	m_position = pos;
+	m_direction = glm::vec2(randDir(randomEngine), randDir(randomEngine));
+	if (m_direction.length() == 0) m_direction = glm::vec2(1.f, 0.f);
 
-	_direction = glm::normalize(_direction);
+	m_direction = glm::normalize(m_direction);
 }
 
 void Human::update(const std::vector<std::string>& levelData, std::vector<Human*>& humans, std::vector<Zombie*>& zombies, float deltaTime)
@@ -37,16 +36,16 @@ void Human::update(const std::vector<std::string>& levelData, std::vector<Human*
 
 	static std::uniform_real_distribution<float> randRotate(-40.f, 40.f);
 
-	_position += _direction * _speed * deltaTime;
+	m_position += m_direction * m_speed * deltaTime;
 
-	if (_frames == 20) {
-		_direction = glm::rotate(_direction, randRotate(randomEngine));
-		_frames = 0;
+	if (m_frames == 20) {
+		m_direction = glm::rotate(m_direction, randRotate(randomEngine));
+		m_frames = 0;
 	}
 	else {
-		_frames++;
+		m_frames++;
 	}
 	if (collideWithLevel(levelData)) {
-		_direction = glm::rotate(_direction, randRotate(randomEngine));
+		m_direction = glm::rotate(m_direction, randRotate(randomEngine));
 	}
 }

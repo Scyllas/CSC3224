@@ -11,7 +11,7 @@ const float RAND_TO_DEGREES = 3.14 / 180;
 class Gun
 {
 public:
-	Gun(std::string name, int firerate, int bulletsPerShot, float spread, float _bulletDamage, float _bulletSpeed);
+	Gun(std::string name, int firerate, int bulletsPerShot, float spread, float m_bulletDamage, float m_bulletSpeed);
 	~Gun();
 
 	void update(bool isMouseDown, const glm::vec2& position, const glm::vec2& direction, std::vector<Bullet>& bullets, float deltaTime);
@@ -22,17 +22,17 @@ private:
 
 	void fire(const glm::vec2& direction, const glm::vec2& position, std::vector<Bullet>& bullets);
 
-	std::string _name;
+	std::string m_name;
 
-	int _fireRate; //frames, not time
-	int _bulletsPerShot;
+	int m_fireRate; //frames, not time
+	int m_bulletsPerShot;
 
-	float _spread;
+	float m_spread;
 
-	float _bulletSpeed;
-	float _bulletDamage;
+	float m_bulletSpeed;
+	float m_bulletDamage;
 
-	float _frameCounter;
+	float m_frameCounter;
 
 
 };

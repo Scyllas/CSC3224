@@ -14,12 +14,12 @@ namespace Bengine {
 	GLTexture TextureCache::getTexture(std::string texturePath) {
 
 		//texture lookup
-		auto mit = _textureMap.find(texturePath);
+		auto mit = m_textureMap.find(texturePath);
 
-		if (mit == _textureMap.end()) {
+		if (mit == m_textureMap.end()) {
 			GLTexture newTexture = ImageLoader::loadPNG(texturePath);
 
-			_textureMap.insert(make_pair(texturePath, newTexture));
+			m_textureMap.insert(make_pair(texturePath, newTexture));
 
 			return newTexture;
 		}
