@@ -2,14 +2,15 @@
 
 
 
-Gun::Gun(std::string name, int firerate, int bulletsPerShot, float spread, float bulletDamage, float bulletSpeed) :
+Gun::Gun(std::string name, int firerate, int bulletsPerShot, float spread, float bulletDamage, float bulletSpeed, Bengine::SoundEffect fireEffect) :
 	m_name(name),
 	m_fireRate(firerate),
 	m_bulletsPerShot(bulletsPerShot),
 	m_spread(spread),
 	m_bulletDamage(bulletDamage),
 	m_bulletSpeed(bulletSpeed),
-	m_frameCounter(0)
+	m_frameCounter(0),
+	m_fireEffect(fireEffect)
 
 
 {
@@ -37,6 +38,7 @@ void Gun::fire(const glm::vec2& direction, const glm::vec2& position, std::vecto
 
 	static std::uniform_real_distribution<float> randRotate(-m_spread, m_spread);
 
+	m_fireEffect.play();
 
 	for (int i = 0; i < m_bulletsPerShot; i++) {
 		bullets.emplace_back(position,

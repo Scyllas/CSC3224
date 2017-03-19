@@ -1,5 +1,4 @@
 #include "MainGame.h"
-#include <Bengine/Errors.h>
 
 #include <iostream>
 #include <string>
@@ -18,6 +17,8 @@ MainGame::~MainGame() {
 void MainGame::run() {
 
 	initSystems();
+
+	initLevel();
 
 	gameLoop();
 
@@ -161,6 +162,8 @@ void MainGame::processInput() {
 void MainGame::initSystems() {
 
 	Bengine::init();
+
+	m_audioEngine.init();
 
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 

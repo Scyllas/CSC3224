@@ -25,7 +25,11 @@ MainGame::~MainGame()
 void MainGame::run() {
 
 	initSystems();
+
 	initLevel();
+
+	Bengine::Music music = m_audioEngine.loadMusic("Sound/XYZ.ogg");
+	music.play(-1);
 
 	gameLoop();
 
@@ -34,6 +38,8 @@ void MainGame::run() {
 void MainGame::initSystems() {
 	Bengine::init();
 
+	m_audioEngine.init();
+
 	m_window.create("ZombieGame", m_screenWidth, m_screenHeight, 0);
 	glClearColor(0.7f, 0.7f, 0.7f, 1.f);
 	initShaders();
@@ -41,12 +47,15 @@ void MainGame::initSystems() {
 	m_agentSpriteBatch.init();
 	m_hudSpriteBatch.init();
 
- 	m_spriteFont = new Bengine::SpriteFont("Fonts/comicate.ttf", 64);
+	m_spriteFont = new Bengine::SpriteFont("Fonts/comicate.ttf", 64);
 
 	m_camera.init(m_screenWidth, m_screenHeight);
 	m_hudCamera.init(m_screenWidth, m_screenHeight);
-	m_hudCamera.setPosition(glm::vec2(m_screenWidth / 2, m_screenHeight/2));
+	m_hudCamera.setPosition(glm::vec2(m_screenWidth / 2, m_screenHeight / 2));
 
+	m_bloodParticleBatch = new Bengine::ParticleBatch2D;
+	m_bloodParticleBatch->init(1000, 0.05f, Bengine::ResourceManager::getTexture("Textures/particle.png"));
+	m_particleEngine.addParticleBatch(m_bloodParticleBatch);
 }
 
 void MainGame::initLevel() {
@@ -82,9 +91,9 @@ void MainGame::initLevel() {
 	}
 
 	const float BULLET_SPEED = 20.f;
-	m_player->addGun(new Gun("Magnum", 10, 1, 5.f, 30, BULLET_SPEED));
-	m_player->addGun(new Gun("Shotgun", 30, 20, 20.f, 4, BULLET_SPEED));
-	m_player->addGun(new Gun("SMG", 2, 1, 10.f, 20, BULLET_SPEED));
+	m_player->addGun(new Gun("Magnum", 10, 1, 5.f, 30, BULLET_SPEED, m_audioEngine.loadSoundEffect("Sound/shots/pistol.wav")));
+	m_player->addGun(new Gun("Shotgun", 30, 20, 20.f, 4, BULLET_SPEED, m_audioEngine.loadSoundEffect("Sound/shots/pistol.wav")));
+	m_player->addGun(new Gun("SMG", 2, 1, 10.f, 20, BULLET_SPEED, m_audioEngine.loadSoundEffect("Sound/shots/pistol.wav")));
 }
 
 void MainGame::initShaders() {
@@ -138,11 +147,15 @@ void MainGame::gameLoop() {
 			updateAgents(deltaTime);
 
 			updateBullets(deltaTime);
+			
+			m_particleEngine.update(deltaTime);
 
 			totalDeltaTime -= deltaTime;
 
 			i++;
 		}
+
+		
 
 		m_camera.setPosition(m_player->getPosition());
 
@@ -233,6 +246,7 @@ void MainGame::updateBullets(float deltaTime) {
 		wasBulletRemoved = false;
 		for (int j = 0; j < m_zombies.size(); ) {
 			if (m_bullets[i].collideWithAgent(m_zombies[j])) {
+				addBlood(m_bullets[i].getPosition(), 5);
 				if (m_zombies[j]->applyDamage(m_bullets[i].getDamage())) {
 					m_numZombiesKilled++;
 					delete m_zombies[j];
@@ -257,6 +271,7 @@ void MainGame::updateBullets(float deltaTime) {
 			//j = 1 avoid self collision
 			for (int j = 1; j < m_humans.size(); ) {
 				if (m_bullets[i].collideWithAgent(m_humans[j])) {
+					addBlood(m_bullets[i].getPosition(), 5);
 					if (m_humans[j]->applyDamage(m_bullets[i].getDamage())) {
 						m_numHumansKilled++;
 						delete m_humans[j];
@@ -359,6 +374,7 @@ void MainGame::drawGame() {
 	m_agentSpriteBatch.end();
 	m_agentSpriteBatch.renderBatch();
 
+	m_particleEngine.draw(&m_agentSpriteBatch);
 
 	drawHud();
 
@@ -396,4 +412,18 @@ void MainGame::drawHud() {
 	m_hudSpriteBatch.renderBatch();
 
 
+}
+
+void MainGame::addBlood(const glm::vec2 & position, int numParticles) {
+
+	static std::mt19937 randEngine(time(nullptr));
+	static std::uniform_real_distribution<float> randAngle(0.f, 360.f);
+
+	glm::vec2 vel(2.f, 0.f);
+	glm::rotate(vel, randAngle(randEngine));
+	Bengine::ColorRGBA8 col(255, 0, 0, 255);
+
+	for (int i = 0; i < numParticles; i++) {
+		m_bloodParticleBatch->addParticle(position, glm::rotate(vel, randAngle(randEngine)), col, 30.f);
+	}
 }

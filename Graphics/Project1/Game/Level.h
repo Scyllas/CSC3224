@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <Bengine\Errors.h>
+#include <Bengine/BengineErrors.h>
 #include <Bengine\SpriteBatch.h>
 
 
