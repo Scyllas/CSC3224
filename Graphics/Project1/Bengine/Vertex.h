@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GL/glew.h>	
+#include <GL\glew.h>	
 namespace Bengine {
 	struct Position {
 		Position() :x(0), y(0) {}

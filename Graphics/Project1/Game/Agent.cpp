@@ -75,14 +75,13 @@ bool Agent::collideWithAgent(Agent * agent){
 
 void Agent::draw(Bengine::SpriteBatch & m_spriteBatch) {
 
-	static int textureID = Bengine::ResourceManager::getTexture("Textures/circle.png").id;
 	glm::vec4 uvRect(0.f, 0.f, 1.f, 1.f);
 	glm::vec4 destRect;
 	destRect.x = m_position.x;
 	destRect.y = m_position.y;
 	destRect.z = AGENT_WIDTH;
 	destRect.w = AGENT_WIDTH;
-	m_spriteBatch.draw(destRect, uvRect, textureID, 0.f, m_color);
+	m_spriteBatch.draw(destRect, uvRect, m_textureID, 0.f, m_color, m_direction);
 
 }
 

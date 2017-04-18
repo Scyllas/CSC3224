@@ -4,10 +4,10 @@
 
 #include <fstream>
 namespace Bengine {
-	GLSLProgram::GLSLProgram() : 
-		m_numAttributes(0), 
-		m_programID(0), 
-		m_vertexShaderID(0), 
+	GLSLProgram::GLSLProgram() :
+		m_numAttributes(0),
+		m_programID(0),
+		m_vertexShaderID(0),
 		m_fragmentShaderID(0) {
 
 
@@ -19,7 +19,20 @@ namespace Bengine {
 	{
 	}
 
-	void GLSLProgram::compileShaders(const std::string & vertexShaderFilePath, const std::string & fragmentShaderFilepath) {
+	void GLSLProgram::compileShaders(const std::string & vertexShaderFilePath, const std::string & fragmentShaderFilePath) {
+
+		std::string vertSource;
+		std::string fragSource;
+
+		IOManager::readFileToBuffer(vertexShaderFilePath, vertSource);
+		IOManager::readFileToBuffer(fragmentShaderFilePath, fragSource);
+
+		compileShadersFromSource(vertSource.c_str(), fragSource.c_str());
+
+	}
+
+	void GLSLProgram::compileShadersFromSource(const char * vertexSource, const char * fragmentSource){
+
 
 		//shaders sucessfully compiled
 
@@ -38,8 +51,8 @@ namespace Bengine {
 
 		}
 
-		compileShader(vertexShaderFilePath, m_vertexShaderID);
-		compileShader(fragmentShaderFilepath, m_fragmentShaderID);
+		compileShader(vertexSource, "Vertex Shader", m_vertexShaderID);
+		compileShader(fragmentSource, "Fragment Shader", m_fragmentShaderID);
 
 	}
 
@@ -122,32 +135,17 @@ namespace Bengine {
 		}
 	}
 
+	void GLSLProgram::dispose()
+	{
+		if (m_programID) glDeleteProgram(m_programID);
+		
+	}
 
 
-	void GLSLProgram::compileShader(const std::string & filepath, GLuint id)
+	void GLSLProgram::compileShader(const char* source,const std::string& name, GLuint id)
 	{
 
-		std::ifstream vertexFile(filepath);
-		if (vertexFile.fail()) {
-
-			perror(filepath.c_str());
-			fatalError("Failed to open " + filepath);
-
-		}
-
-		std::string fileContents = "";
-		std::string line;
-
-		while (std::getline(vertexFile, line)) {
-
-			fileContents += line + "\n";
-
-		}
-
-		vertexFile.close();
-
-		const char* contentsPtr = fileContents.c_str();
-		glShaderSource(id, 1, &contentsPtr, nullptr);
+		glShaderSource(id, 1, &source, nullptr);
 
 		glCompileShader(id);
 
@@ -167,7 +165,7 @@ namespace Bengine {
 			glDeleteShader(id); //remove leak
 
 			std::printf("%s\n", &(errorLog[0]));
-			fatalError("Shader " + filepath + " failed to compile");
+			fatalError("Shader " + name + " failed to compile");
 
 			return;
 

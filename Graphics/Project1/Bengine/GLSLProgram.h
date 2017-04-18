@@ -2,6 +2,8 @@
 
 #include <string>
 #include <GL/glew.h>
+#include "IOManager.h"
+
 namespace Bengine {
 	class GLSLProgram
 	{
@@ -9,7 +11,9 @@ namespace Bengine {
 		GLSLProgram();
 		~GLSLProgram();
 
-		void compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilepath);
+		void compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilePath);
+
+		void compileShadersFromSource(const char* vertexSource, const char* fragmentSource);
 
 		void linkShaders();
 
@@ -20,10 +24,12 @@ namespace Bengine {
 		void use();
 		void unuse();
 
+		void dispose();
+
 	private:
 		int m_numAttributes;
 
-		void compileShader(const std::string& filepath, GLuint id);
+		void compileShader(const char* source, const std::string& name, GLuint id);
 
 		GLuint m_programID;
 		GLuint m_vertexShaderID;

@@ -11,13 +11,13 @@ MainGame::MainGame() {
 
 MainGame::~MainGame()
 {
-	for (int i = 0; i < m_levels.size(); i++) {
+	for (size_t i = 0; i < m_levels.size(); i++) {
 		delete m_levels[i];
 	}
-	for (int i = 0; i < m_humans.size(); i++) {
+	for (size_t i = 0; i < m_humans.size(); i++) {
 		delete m_humans[i];
 	}
-	for (int i = 0; i < m_zombies.size(); i++) {
+	for (size_t i = 0; i < m_zombies.size(); i++) {
 		delete m_zombies[i];
 	}
 }
@@ -34,6 +34,7 @@ void MainGame::run() {
 	gameLoop();
 
 }
+
 
 void MainGame::initSystems() {
 	Bengine::init();
@@ -54,7 +55,13 @@ void MainGame::initSystems() {
 	m_hudCamera.setPosition(glm::vec2(m_screenWidth / 2, m_screenHeight / 2));
 
 	m_bloodParticleBatch = new Bengine::ParticleBatch2D;
-	m_bloodParticleBatch->init(1000, 0.05f, Bengine::ResourceManager::getTexture("Textures/particle.png"));
+	m_bloodParticleBatch->init(1000,
+		0.05f,
+		Bengine::ResourceManager::getTexture("Textures/particle.png"),
+		[](Bengine::Particle2D& particle, float deltaTime) {
+		particle.position += particle.velocity * deltaTime;
+		particle.color.a = (GLubyte)(particle.life * 255.f);
+	});
 	m_particleEngine.addParticleBatch(m_bloodParticleBatch);
 }
 
@@ -69,7 +76,7 @@ void MainGame::initLevel() {
 	m_humans.push_back(m_player);
 
 	static std::mt19937 randomEngine;
-	randomEngine.seed(time(nullptr));
+	randomEngine.seed((unsigned int)time(nullptr));
 	static std::uniform_int_distribution<int> randX(1, m_levels[m_currentLevel]->getWidth() - 2);
 	static std::uniform_int_distribution<int> randY(1, m_levels[m_currentLevel]->getHeight() - 2);
 
@@ -84,7 +91,7 @@ void MainGame::initLevel() {
 
 	const std::vector<glm::vec2>& zombiePositions = m_levels[m_currentLevel]->getZombieStartPositions();
 
-	for (int i = 0; i < zombiePositions.size(); i++) {
+	for (size_t  i = 0; i < zombiePositions.size(); i++) {
 
 		m_zombies.push_back(new Zombie);
 		m_zombies.back()->init(ZOMBIE_SPEED, zombiePositions[i]);
@@ -115,19 +122,19 @@ void MainGame::gameLoop() {
 
 	fpsLimiter.setMaxFPS(DESIRED_FPS);
 
-	const float CAMERA_SCALE = 0.25f;
+	const float CAMERA_SCALE = 0.33f;
 	m_camera.setScale(CAMERA_SCALE);
 
 	const float MS_PER_SECOND = 1000.f;
 	const float DESIRED_FRAMETIME = MS_PER_SECOND / DESIRED_FPS;
 	const float MAX_DELTA_TIME = 1.f;
-	float prevTicks = SDL_GetTicks();
+	float prevTicks = (float)SDL_GetTicks();
 
 	while (m_gameState == GameState::PLAY) {
 
 		fpsLimiter.begin();
 
-		float newTicks = SDL_GetTicks();
+		float newTicks = (float)SDL_GetTicks();
 		float frameTime = newTicks - prevTicks;
 		prevTicks = newTicks;
 		float totalDeltaTime = frameTime / DESIRED_FRAMETIME;
@@ -147,7 +154,7 @@ void MainGame::gameLoop() {
 			updateAgents(deltaTime);
 
 			updateBullets(deltaTime);
-			
+
 			m_particleEngine.update(deltaTime);
 
 			totalDeltaTime -= deltaTime;
@@ -155,7 +162,7 @@ void MainGame::gameLoop() {
 			i++;
 		}
 
-		
+
 
 		m_camera.setPosition(m_player->getPosition());
 
@@ -181,22 +188,22 @@ void MainGame::checkVictory() {
 void MainGame::updateAgents(float deltaTime) {
 
 	//update humans
-	for (int i = 0; i < m_humans.size(); i++) {
+	for( size_t i = 0; i < m_humans.size(); i++) {
 		m_humans[i]->update(m_levels[m_currentLevel]->getLevelData(), m_humans, m_zombies, deltaTime);
 	}
 	//update zombies
-	for (int i = 0; i < m_zombies.size(); i++) {
+	for( size_t i = 0; i < m_zombies.size(); i++) {
 		m_zombies[i]->update(m_levels[m_currentLevel]->getLevelData(), m_humans, m_zombies, deltaTime);
 	}
 
 	//update zombie collisions
-	for (int i = 0; i < m_zombies.size(); i++) {
+	for( size_t i = 0; i < m_zombies.size(); i++) {
 		//colliding with zombies
-		for (int j = i + 1; j < m_zombies.size(); j++) {
+		for( size_t j = i + 1; j < m_zombies.size(); j++) {
 			m_zombies[i]->collideWithAgent(m_zombies[j]);
 		}
 		//with humans
-		for (int j = 1; j < m_humans.size(); j++) {
+		for( size_t j = 1; j < m_humans.size(); j++) {
 			if (m_zombies[i]->collideWithAgent(m_humans[j])) {
 				//create new zombie
 				m_zombies.push_back(new Zombie);
@@ -216,9 +223,9 @@ void MainGame::updateAgents(float deltaTime) {
 
 	}
 	//update humans collisions
-	for (int i = 0; i < m_humans.size(); i++) {
+	for( size_t i = 0; i < m_humans.size(); i++) {
 		//colliding with humans
-		for (int j = i + 1; j < m_humans.size(); j++) {
+		for( size_t j = i + 1; j < m_humans.size(); j++) {
 			m_humans[i]->collideWithAgent(m_humans[j]);
 		}
 	}
@@ -228,7 +235,7 @@ void MainGame::updateAgents(float deltaTime) {
 void MainGame::updateBullets(float deltaTime) {
 
 	//collision with world
-	for (int i = 0; i < m_bullets.size();) {
+	for( size_t i = 0; i < m_bullets.size();) {
 		if (m_bullets[i].update(m_levels[m_currentLevel]->getLevelData(), deltaTime) == true) {
 			m_bullets[i] = m_bullets.back();
 			m_bullets.pop_back();
@@ -240,11 +247,11 @@ void MainGame::updateBullets(float deltaTime) {
 
 	bool wasBulletRemoved = false;
 	//collision with agents
-	for (int i = 0; i < m_bullets.size(); i++) {
+	for( size_t i = 0; i < m_bullets.size(); i++) {
 
 
 		wasBulletRemoved = false;
-		for (int j = 0; j < m_zombies.size(); ) {
+		for( size_t j = 0; j < m_zombies.size(); ) {
 			if (m_bullets[i].collideWithAgent(m_zombies[j])) {
 				addBlood(m_bullets[i].getPosition(), 5);
 				if (m_zombies[j]->applyDamage(m_bullets[i].getDamage())) {
@@ -269,7 +276,7 @@ void MainGame::updateBullets(float deltaTime) {
 
 		if (wasBulletRemoved == false) {
 			//j = 1 avoid self collision
-			for (int j = 1; j < m_humans.size(); ) {
+			for( size_t j = 1; j < m_humans.size(); ) {
 				if (m_bullets[i].collideWithAgent(m_humans[j])) {
 					addBlood(m_bullets[i].getPosition(), 5);
 					if (m_humans[j]->applyDamage(m_bullets[i].getDamage())) {
@@ -306,7 +313,7 @@ void MainGame::processInput() {
 			m_gameState = GameState::EXIT;
 			break;
 		case SDL_MOUSEMOTION:
-			m_inputManager.setMouseCoords(evnt.motion.x, evnt.motion.y);
+			m_inputManager.setMouseCoords((float)evnt.motion.x, (float)evnt.motion.y);
 			break;
 		case SDL_KEYDOWN:
 			m_inputManager.pressKey(evnt.key.keysym.sym);
@@ -355,19 +362,19 @@ void MainGame::drawGame() {
 	glm::vec2 agentDims(AGENT_RADIUS * 2.f);
 
 	//draw humans
-	for (int i = 0; i < m_humans.size(); i++) {
+	for( size_t i = 0; i < m_humans.size(); i++) {
 		if (m_camera.isBoxInView(m_humans[i]->getPosition(), agentDims)) {
 			m_humans[i]->draw(m_agentSpriteBatch);
 		}
 	}
 	//draw zombies
-	for (int i = 0; i < m_zombies.size(); i++) {
+	for( size_t i = 0; i < m_zombies.size(); i++) {
 		if (m_camera.isBoxInView(m_zombies[i]->getPosition(), agentDims)) {
 			m_zombies[i]->draw(m_agentSpriteBatch);
 		}
 	}
 	//draw bullets
-	for (int i = 0; i < m_bullets.size(); i++) {
+	for( size_t i = 0; i < m_bullets.size(); i++) {
 		m_bullets[i].draw(m_agentSpriteBatch);
 	}
 
@@ -402,7 +409,7 @@ void MainGame::drawHud() {
 		m_hudSpriteBatch, buffer, glm::vec2(0, 0),
 		glm::vec2(0.5f), 0.f, Bengine::ColorRGBA8(255, 255, 255, 255));
 
-	sprintf_s(buffer, "%d", m_fps);
+	sprintf_s(buffer, "%f", m_fps);
 
 	m_spriteFont->draw(
 		m_hudSpriteBatch, buffer, glm::vec2(0, 36),
@@ -416,7 +423,7 @@ void MainGame::drawHud() {
 
 void MainGame::addBlood(const glm::vec2 & position, int numParticles) {
 
-	static std::mt19937 randEngine(time(nullptr));
+	static std::mt19937 randEngine((unsigned int)time(nullptr));
 	static std::uniform_real_distribution<float> randAngle(0.f, 360.f);
 
 	glm::vec2 vel(2.f, 0.f);

@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{F60EE51E-06A0-3E99-8408-051021F27139}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>CEGUISampleFramework-0.8</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\bin\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CEGUISampleFramework-0.8.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CEGUISampleFramework-0.8_d</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\bin\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CEGUISampleFramework-0.8.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CEGUISampleFramework-0.8</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\bin\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CEGUISampleFramework-0.8.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CEGUISampleFramework-0.8</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\bin\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CEGUISampleFramework-0.8.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CEGUISampleFramework-0.8</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;GLFW_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;GLFW_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\..\dependencies\lib\dynamic\glfw_d.lib;..\lib\CEGUIOpenGLRenderer-0_d.lib;..\lib\CEGUIBase-0_d.lib;..\..\dependencies\lib\dynamic\freetype_d.lib;..\..\dependencies\lib\dynamic\pcre_d.lib;winmm.lib;DbgHelp.lib;glu32.lib;opengl32.lib;..\..\dependencies\lib\dynamic\glew_d.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/lib/CEGUISampleFramework-0.8_d.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/bin/CEGUISampleFramework-0.8_d.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLFW_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLFW_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\..\dependencies\lib\dynamic\glfw.lib;..\lib\CEGUIOpenGLRenderer-0.lib;..\lib\CEGUIBase-0.lib;..\..\dependencies\lib\dynamic\freetype.lib;..\..\dependencies\lib\dynamic\pcre.lib;winmm.lib;glu32.lib;opengl32.lib;..\..\dependencies\lib\dynamic\glew.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/lib/CEGUISampleFramework-0.8.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/bin/CEGUISampleFramework-0.8.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLFW_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLFW_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\..\dependencies\lib\dynamic\glfw.lib;..\lib\CEGUIOpenGLRenderer-0.lib;..\lib\CEGUIBase-0.lib;..\..\dependencies\lib\dynamic\freetype.lib;..\..\dependencies\lib\dynamic\pcre.lib;winmm.lib;glu32.lib;opengl32.lib;..\..\dependencies\lib\dynamic\glew.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/lib/CEGUISampleFramework-0.8.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/bin/CEGUISampleFramework-0.8.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLFW_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLFW_DLL;_CRT_SECURE_NO_WARNINGS;NOMINMAX;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)  /machine:X86</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;glu32.lib;opengl32.lib;..\..\dependencies\lib\dynamic\glfw.lib;..\lib\CEGUIOpenGLRenderer-0.lib;..\lib\CEGUIBase-0.lib;..\..\dependencies\lib\dynamic\freetype.lib;..\..\dependencies\lib\dynamic\pcre.lib;winmm.lib;glu32.lib;opengl32.lib;..\..\dependencies\lib\dynamic\glew.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/lib/CEGUISampleFramework-0.8.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/bin/CEGUISampleFramework-0.8.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/samples_framework/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4 -BC:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build --check-stamp-file C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/samples_framework/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/samples_framework/CMakeLists.txt;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\CMakeLists.txt;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cmake\templates\VisualStudioUserFile.vcproj.user.in;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cmake\templates\VisualStudioUserFile.vcxproj.user.in;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples_framework\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/samples_framework/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4 -BC:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build --check-stamp-file C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/samples_framework/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/samples_framework/CMakeLists.txt;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\CMakeLists.txt;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cmake\templates\VisualStudioUserFile.vcproj.user.in;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cmake\templates\VisualStudioUserFile.vcxproj.user.in;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples_framework\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/samples_framework/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4 -BC:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build --check-stamp-file C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/samples_framework/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/samples_framework/CMakeLists.txt;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\CMakeLists.txt;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cmake\templates\VisualStudioUserFile.vcproj.user.in;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cmake\templates\VisualStudioUserFile.vcxproj.user.in;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples_framework\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/samples_framework/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4 -BC:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build --check-stamp-file C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/build/samples_framework/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/Ben/Documents/CSC3224/Graphics/Project1/dependencies/cegui-0.8.4/samples_framework/CMakeLists.txt;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\CMakeLists.txt;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cmake\templates\VisualStudioUserFile.vcproj.user.in;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cmake\templates\VisualStudioUserFile.vcxproj.user.in;C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples_framework\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include\Sample.h" />
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\SamplesFrameworkBase.h" />
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\SamplesFramework.h" />
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\CEGuiBaseApplication.h" />
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\CEGuiRendererSelector.h" />
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\Samples_xmlHandler.h" />
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\SampleData.h" />
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\MetaDataWindowManager.h" />
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\SamplesBrowserManager.h" />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\SamplesFrameworkBase.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\SamplesFramework.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\CEGuiBaseApplication.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\CEGuiRendererSelector.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\Samples_xmlHandler.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\SampleData.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\MetaDataWindowManager.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\SamplesBrowserManager.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\Win32AppHelper.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\Win32CEGuiRendererSelector.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\CEGuiGLFWSharedBase.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\CEGuiOpenGLBaseApplication.cpp"  />
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\CEGuiOpenGL3BaseApplication.cpp"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\ZERO_CHECK.vcxproj">
+      <Project>640769D3-93A0-3641-9B40-0C8EBF87373E</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\src\CEGUIBase-0.vcxproj">
+      <Project>58BF4595-DCB5-33CF-A3D0-BC303D01222C</Project>
+      <Name>CEGUIBase-0</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\CommonDialogsDemo\CEGUICommonDialogsDemo.vcxproj">
+      <Project>4E0396A4-C5B0-3A25-A012-09A175B00F09</Project>
+      <Name>CEGUICommonDialogsDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\src\WindowRendererSets\Core\CEGUICoreWindowRendererSet.vcxproj">
+      <Project>91A4CEFB-EBFD-3882-B2F8-D7C2EE8FFEF4</Project>
+      <Name>CEGUICoreWindowRendererSet</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\Demo6\CEGUIDemo6.vcxproj">
+      <Project>E386D40F-EAAC-3BA5-8B54-8A6C3AC1DAD1</Project>
+      <Name>CEGUIDemo6</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\DragDropDemo\CEGUIDragDropDemo.vcxproj">
+      <Project>9E29522B-7B0B-385C-8604-3CDBD51DB951</Project>
+      <Name>CEGUIDragDropDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\EditboxValidationDemo\CEGUIEditboxValidationDemo.vcxproj">
+      <Project>49584286-6878-35C4-8603-E8297E4C20AB</Project>
+      <Name>CEGUIEditboxValidationDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\EffectsDemo\CEGUIEffectsDemo.vcxproj">
+      <Project>BF31E4CD-21B2-3A76-A65D-39019C7ECA99</Project>
+      <Name>CEGUIEffectsDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\src\XMLParserModules\Expat\CEGUIExpatParser.vcxproj">
+      <Project>97DB4CEA-9CB6-3FC7-9ED0-C1087F625F56</Project>
+      <Name>CEGUIExpatParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\FontDemo\CEGUIFontDemo.vcxproj">
+      <Project>4D7703AD-74E0-3881-9E70-877FB8D4E67E</Project>
+      <Name>CEGUIFontDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\GameMenu\CEGUIGameMenuDemo.vcxproj">
+      <Project>75C41F75-8B77-3595-8305-3B315549D13E</Project>
+      <Name>CEGUIGameMenuDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\HUDDemo\CEGUIHUDDemo.vcxproj">
+      <Project>E7C00724-33C1-3B3D-807A-D7CE5B75EF8A</Project>
+      <Name>CEGUIHUDDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\HelloWorld\CEGUIHelloWorldDemo.vcxproj">
+      <Project>F417D6FC-1129-3016-B9BC-2F63A6A420D4</Project>
+      <Name>CEGUIHelloWorldDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\InventoryDemo\CEGUIInventoryDemo.vcxproj">
+      <Project>FB693C1B-7AF9-3C31-B1EC-05C02F625445</Project>
+      <Name>CEGUIInventoryDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\Minesweeper\CEGUIMinesweeper.vcxproj">
+      <Project>0C99CD28-DE04-3828-9673-C31419E3A086</Project>
+      <Name>CEGUIMinesweeper</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\src\RendererModules\OpenGL\CEGUIOpenGLRenderer-0.vcxproj">
+      <Project>99DA5D36-E86A-3293-86AB-0E3E69728C1E</Project>
+      <Name>CEGUIOpenGLRenderer-0</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\cegui\src\ImageCodecModules\SILLY\CEGUISILLYImageCodec.vcxproj">
+      <Project>13BDB99A-862B-3DDB-8153-6A637178808E</Project>
+      <Name>CEGUISILLYImageCodec</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\ScrollablePaneDemo\CEGUIScrollablePaneDemo.vcxproj">
+      <Project>CB71BEBD-1B6C-30CE-BBBE-9DB3BEDE9DF7</Project>
+      <Name>CEGUIScrollablePaneDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\TabControlDemo\CEGUITabControlDemo.vcxproj">
+      <Project>D34B4E7D-5DFF-3603-8934-14251D159D11</Project>
+      <Name>CEGUITabControlDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\TextDemo\CEGUITextDemo.vcxproj">
+      <Project>FF2B7695-757C-399C-A921-D707215EDD0D</Project>
+      <Name>CEGUITextDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\TreeDemo\CEGUITreeDemo.vcxproj">
+      <Project>5A61DBD3-FF24-3416-A8B0-AAE322DDED1A</Project>
+      <Name>CEGUITreeDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\build\samples\WidgetDemo\CEGUIWidgetDemo.vcxproj">
+      <Project>9AEE011F-9968-3F27-81C7-B1D5AB289AE8</Project>
+      <Name>CEGUIWidgetDemo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

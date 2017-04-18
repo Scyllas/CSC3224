@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\SamplesFrameworkBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\SamplesFramework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\CEGuiBaseApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\CEGuiRendererSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\Samples_xmlHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\SampleData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\MetaDataWindowManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\SamplesBrowserManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\Win32AppHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\Win32CEGuiRendererSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\CEGuiGLFWSharedBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\CEGuiOpenGLBaseApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\src\CEGuiOpenGL3BaseApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples\common\include\Sample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\SamplesFrameworkBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\SamplesFramework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\CEGuiBaseApplication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\CEGuiRendererSelector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\Samples_xmlHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\SampleData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\MetaDataWindowManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\include\SamplesBrowserManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\samples_framework\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{54B6E8DE-E032-330A-A77E-6E0C216EFBA6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{DDCD4AF4-8C9C-342A-8B70-CE080EAACAE5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

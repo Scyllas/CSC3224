@@ -17,21 +17,22 @@ namespace Bengine {
 	void ParticleBatch2D::init(
 		int maxParticles,
 		float decayRate,
-		GLTexture texture) {
+		GLTexture texture,
+		std::function<void(Particle2D&, float)> updateFunc /* = defaultParticleUpdate*/){
 
 		m_maxParticles = maxParticles;
 		m_Particles = new Particle2D[maxParticles];
 		m_decayRate = decayRate;
 		m_texture = texture;
-
+		m_updateFunc = updateFunc;
 	}
 
 	void ParticleBatch2D::update(float deltaTime) {
 
 		for (int i = 0; i < m_maxParticles; i++) {
-			if (m_Particles[i].m_life > 0.f) {
-				m_Particles[i].update(deltaTime);
-				m_Particles[i].m_life -= m_decayRate * deltaTime;
+			if (m_Particles[i].life > 0.f) {
+				m_updateFunc(m_Particles[i], deltaTime);
+				m_Particles[i].life -= m_decayRate * deltaTime;
 
 			}
 		}
@@ -45,20 +46,20 @@ namespace Bengine {
 		for (int i = 0; i < m_maxParticles; i++) {
 
 			auto& p = m_Particles[i];
-			if (p.m_life > 0.f) {
+			if (p.life > 0.f) {
 
 				glm::vec4 destRect(
-					p.m_position.x,
-					p.m_position.y,
-					p.m_width,
-					p.m_width);
+					p.position.x,
+					p.position.y,
+					p.width,
+					p.width);
 
 				spriteBatch->draw(
 					destRect,
 					uvRect,
 					m_texture.id, 
 					0.f, 
-					p.m_color);
+					p.color);
 
 			}
 		}
@@ -74,11 +75,11 @@ namespace Bengine {
 
 		auto &p = m_Particles[particleIndex];
 
-		p.m_life = 1.f;
-		p.m_position = position;
-		p.m_velocity = velocity;
-		p.m_color = color;
-		p.m_width = width;
+		p.life = 1.f;
+		p.position = position;
+		p.velocity = velocity;
+		p.color = color;
+		p.width = width;
 
 
 	}
@@ -86,13 +87,13 @@ namespace Bengine {
 	int ParticleBatch2D::findFreeParticle(){
 		
 		for (int i = m_lastFreeParticle; i < m_maxParticles; i++) {
-			if (m_Particles[i].m_life <= 0.f) {
+			if (m_Particles[i].life <= 0.f) {
 				m_lastFreeParticle = i;
 				return i;
 			}
 		}
 		for (int i = 0; i < m_maxParticles; i++) {
-			if (m_Particles[i].m_life <= 0.f) {
+			if (m_Particles[i].life <= 0.f) {
 				m_lastFreeParticle = i;
 				return i;
 			}
@@ -100,10 +101,6 @@ namespace Bengine {
 		return 0;
 	}
 
-	void Particle2D::update(float deltaTime) {
 
-		m_position += m_velocity* deltaTime;
-
-	}
 
 }

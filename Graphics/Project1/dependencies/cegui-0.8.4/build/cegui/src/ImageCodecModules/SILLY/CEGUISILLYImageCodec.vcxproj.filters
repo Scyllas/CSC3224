@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\src\ImageCodecModules\SILLY\ImageCodec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\src\ImageCodecModules\SILLY\ImageCodecModule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include\CEGUI\ImageCodecModules\SILLY\ImageCodec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\include\CEGUI\ImageCodecModules\SILLY\ImageCodecModule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-0.8.4\cegui\src\ImageCodecModules\SILLY\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{54B6E8DE-E032-330A-A77E-6E0C216EFBA6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{DDCD4AF4-8C9C-342A-8B70-CE080EAACAE5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

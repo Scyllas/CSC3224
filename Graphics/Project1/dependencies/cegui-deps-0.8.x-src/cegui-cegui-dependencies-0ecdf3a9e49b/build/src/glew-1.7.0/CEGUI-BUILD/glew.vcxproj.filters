@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-deps-0.8.x-src\cegui-cegui-dependencies-0ecdf3a9e49b\src\glew-1.7.0\src\glew.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Ben\Documents\CSC3224\Graphics\Project1\dependencies\cegui-deps-0.8.x-src\cegui-cegui-dependencies-0ecdf3a9e49b\src\glew-1.7.0\CEGUI-BUILD\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DCC1D6D3-EBE9-3452-89B9-3C681427E1D9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -8,7 +8,7 @@
 #include <glm\gtx\rotate_vector.hpp>
 #include <Bengine\AudioEngine.h>
 
-const float RAND_TO_DEGREES = 3.14 / 180;
+const float RAND_TO_DEGREES = 3.14f / 180.f;
 class Gun
 {
 public:

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glm\glm.hpp>
+#include <functional>
 #include "Vertex.h"
 #include "SpriteBatch.h"
 #include "GLTexture.h"
@@ -9,19 +10,20 @@ namespace Bengine {
 
 	class Particle2D {
 	public:
-	friend class ParticleBatch2D;
 
-	void update(float deltaTime);
-
-
-	private:
-		glm::vec2 m_position = glm::vec2(0.f);
-		glm::vec2 m_velocity = glm::vec2(0.f);
-		ColorRGBA8 m_color;
-		float m_life = 1.f;
-		float m_width = 0.f;
-		bool m_isActive = false;
+		glm::vec2 position = glm::vec2(0.f);
+		glm::vec2 velocity = glm::vec2(0.f);
+		ColorRGBA8 color;
+		float life = 1.f;
+		float width = 0.f;
+		bool isActive = false;
 	};
+
+	inline void defaultParticleUpdate(Particle2D& particle, float deltaTime) {
+
+		particle.position += particle.velocity * deltaTime;
+
+	}
 
 	class ParticleBatch2D
 	{
@@ -33,7 +35,8 @@ namespace Bengine {
 		void init(
 			int maxParticles, 
 			float decayRate,
-			GLTexture texture);
+			GLTexture texture,
+			std::function<void(Particle2D&, float)> updateFunc = defaultParticleUpdate);
 
 		void update(float deltaTime);
 
@@ -49,6 +52,7 @@ namespace Bengine {
 		
 		int findFreeParticle();
 
+		std::function<void(Particle2D&, float)> m_updateFunc;
 		float m_decayRate = 0.1f;
 		Particle2D* m_Particles = nullptr;
 		int m_maxParticles = 0;

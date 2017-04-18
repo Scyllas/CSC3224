@@ -3,6 +3,7 @@
 #include <Bengine/InputManager.h>
 #include <SDL\SDL.h>
 #include <Bengine\Camera2D.h>
+#include <Bengine\ResourceManager.h>
 
 #include "Bullet.h"
 #include "Gun.h"
