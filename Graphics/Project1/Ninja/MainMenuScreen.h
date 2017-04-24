@@ -3,20 +3,21 @@
 #include "PlayerChar.h"
 #include "ScreenIndices.h"
 
-#include <Bengine/IGameScreen.h>
+#include <Engine/IGameScreen.h>
 #include <vector>
-#include <Bengine/SpriteBatch.h>
-#include <Bengine/GLSLProgram.h>
-#include <Bengine/Camera2D.h>
-#include <Bengine/GLTexture.h>
-#include <Bengine/Window.h>
-#include <Bengine/DebugRenderer.h>
+#include <Engine/SpriteBatch.h>
+#include <Engine/GLSLProgram.h>
+#include <Engine/Camera2D.h>
+#include <Engine/GLTexture.h>
+#include <Engine/Window.h>
+#include <Engine/DebugRenderer.h>
+#include <Engine\AudioEngine.h>
 
-#include <Bengine/GUI.h>
+#include <Engine/GUI.h>
 
-class MainMenuScreen : public Bengine::IGameScreen {
+class MainMenuScreen : public Engine::IGameScreen {
 public:
-	MainMenuScreen(Bengine::Window* window);
+	MainMenuScreen(Engine::Window* window);
 	~MainMenuScreen();
 
 	virtual int getNextScreenIndex() const override;
@@ -44,8 +45,9 @@ private:
 	bool onExitClicked(const CEGUI::EventArgs& e);
 
 	int m_nextScreenIndex = SCREEN_INDEX_GAMEPLAY;
-	Bengine::Camera2D m_camera;
-	Bengine::Window* m_window;
-	Bengine::GUI m_GUI;
+	Engine::Camera2D m_camera;
+	Engine::Window* m_window;
+	Engine::GUI m_GUI;
+	Engine::AudioEngine m_audioEngine;
 };
 

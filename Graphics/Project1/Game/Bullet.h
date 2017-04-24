@@ -1,8 +1,8 @@
 #pragma once
 
 #include <glm\glm.hpp>
-#include <Bengine\SpriteBatch.h>
-#include <Bengine\ResourceManager.h>
+#include <Engine\SpriteBatch.h>
+#include <Engine\ResourceManager.h>
 
 #include "Human.h"
 #include "Zombie.h"
@@ -25,7 +25,7 @@ public:
 
 	bool update(const std::vector<std::string>& levelData, float deltaTime);
 
-	void draw(Bengine::SpriteBatch& spriteBatch);
+	void draw(Engine::SpriteBatch& spriteBatch);
 
 	float getDamage() const { return m_damage; }
 

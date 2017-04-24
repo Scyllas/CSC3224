@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <Bengine/BengineErrors.h>
-#include <Bengine\SpriteBatch.h>
+#include <Engine/EngineErrors.h>
+#include <Engine\SpriteBatch.h>
 
 
 
@@ -28,7 +28,7 @@ public:
 
 private:
 
-	Bengine::SpriteBatch m_spriteBatch;
+	Engine::SpriteBatch m_spriteBatch;
 	std::vector<std::string> m_levelData;
 	int m_numHumans;
 

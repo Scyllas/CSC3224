@@ -1,12 +1,12 @@
 #pragma once
 
-#include <Bengine/IMainGame.h>
-#include <Bengine/ScreenList.h>
+#include <Engine/IMainGame.h>
+#include <Engine/ScreenList.h>
 #include "GameplayScreen.h"
 #include "MainMenuScreen.h"
 #include "EditorScreen.h"
 
-class App: public Bengine::IMainGame
+class App: public Engine::IMainGame
 {
 public:
 	App();

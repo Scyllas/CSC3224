@@ -2,7 +2,7 @@
 
 #include <Box2D/Box2D.h>
 #include <glm\glm.hpp>
-#include <Bengine\DebugRenderer.h>
+#include <Engine\DebugRenderer.h>
 
 class Capsule
 {
@@ -16,7 +16,7 @@ public:
 
 	void destroy(b2World* world);
 
-	void drawDebug(Bengine::DebugRenderer& debugRenderer);
+	void drawDebug(Engine::DebugRenderer& debugRenderer);
 
 	b2Body* getBody() const { return m_body; }
 	b2Fixture* getFixture(int index) const { return m_fixtures[index]; }

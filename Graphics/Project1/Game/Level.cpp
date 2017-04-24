@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-#include <Bengine\ResourceManager.h>
+#include <Engine\ResourceManager.h>
 
 Level::Level(const std::string & fileName)
 {
@@ -11,7 +11,7 @@ Level::Level(const std::string & fileName)
 	file.open(fileName);
 
 	if (file.fail()) {
-		Bengine::fatalError("failed to open file" + fileName);
+		Engine::fatalError("failed to open file" + fileName);
 	}
 
 	//ignore first string, get number
@@ -39,23 +39,23 @@ Level::Level(const std::string & fileName)
 			case 'B':
 				m_spriteBatch.draw(destRect,
 					uvRect,
-					Bengine::ResourceManager::getTexture("Textures/red_bricks.png").id,
+					Engine::ResourceManager::getTexture("Textures/red_bricks.png").id,
 					0.f,
-					Bengine::ColorRGBA8(255, 255, 255, 255));
+					Engine::ColorRGBA8(255, 255, 255, 255));
 				break;
 			case 'G':
 				m_spriteBatch.draw(destRect,
 					uvRect,
-					Bengine::ResourceManager::getTexture("Textures/glass.png").id,
+					Engine::ResourceManager::getTexture("Textures/glass.png").id,
 					0.f,
-					Bengine::ColorRGBA8(255, 255, 255, 255));
+					Engine::ColorRGBA8(255, 255, 255, 255));
 				break;
 			case 'L':
 				m_spriteBatch.draw(destRect,
 					uvRect,
-					Bengine::ResourceManager::getTexture("Textures/light_bricks.png").id,
+					Engine::ResourceManager::getTexture("Textures/light_bricks.png").id,
 					0.f,
-					Bengine::ColorRGBA8(255, 255, 255, 255));
+					Engine::ColorRGBA8(255, 255, 255, 255));
 				break;
 			case '@':
 				m_levelData[y][x] = '.';

@@ -1,18 +1,18 @@
 #pragma once
 
-#include <Bengine\Window.h>
+#include <Engine\Window.h>
 #include <BEngine\GLSLProgram.h>
-#include <Bengine\Camera2D.h>
-#include <Bengine\InputManager.h>
-#include <Bengine\SpriteBatch.h>
-#include <Bengine\SpriteFont.h>
-#include <Bengine\Bengine.h>
-#include <Bengine\timing.h>
-#include <Bengine\BengineErrors.h>
-#include <Bengine\AudioEngine.h>
-#include <Bengine\ParticleBatch2D.h>
-#include <Bengine\ParticleEngine2D.h>
-#include <Bengine\ResourceManager.h>
+#include <Engine\Camera2D.h>
+#include <Engine\InputManager.h>
+#include <Engine\SpriteBatch.h>
+#include <Engine\SpriteFont.h>
+#include <Engine\Engine.h>
+#include <Engine\timing.h>
+#include <Engine\EngineErrors.h>
+#include <Engine\AudioEngine.h>
+#include <Engine\ParticleBatch2D.h>
+#include <Engine\ParticleEngine2D.h>
+#include <Engine\ResourceManager.h>
 
 #include <SDL\SDL.h>
 #include <fstream>
@@ -73,16 +73,16 @@ private:
 	void checkVictory();
 
 	/// Member Variables
-	Bengine::Window m_window; ///< The game window
-	Bengine::GLSLProgram m_textureProgram; ///< The shader program
-	Bengine::InputManager m_inputManager; ///< Handles input
-	Bengine::Camera2D m_camera; ///< Main Camera
-	Bengine::Camera2D m_hudCamera; ///< Main Camera
-	Bengine::SpriteBatch m_agentSpriteBatch; ///< Main Camera
-	Bengine::SpriteBatch m_hudSpriteBatch;
+	Engine::Window m_window; ///< The game window
+	Engine::GLSLProgram m_textureProgram; ///< The shader program
+	Engine::InputManager m_inputManager; ///< Handles input
+	Engine::Camera2D m_camera; ///< Main Camera
+	Engine::Camera2D m_hudCamera; ///< Main Camera
+	Engine::SpriteBatch m_agentSpriteBatch; ///< Main Camera
+	Engine::SpriteBatch m_hudSpriteBatch;
 
-	Bengine::ParticleEngine2D m_particleEngine;
-	Bengine::ParticleBatch2D* m_bloodParticleBatch;
+	Engine::ParticleEngine2D m_particleEngine;
+	Engine::ParticleBatch2D* m_bloodParticleBatch;
 
 	std::vector<Level*> m_levels;//level storage
 
@@ -103,8 +103,8 @@ private:
 	int m_numZombiesKilled = 0;
 	int m_numHumansConverted = 0;
 
-	Bengine::SpriteFont* m_spriteFont;
-	Bengine::AudioEngine m_audioEngine;
+	Engine::SpriteFont* m_spriteFont;
+	Engine::AudioEngine m_audioEngine;
 
 
 	GameState m_gameState = GameState::PLAY;

@@ -73,7 +73,7 @@ bool Agent::collideWithAgent(Agent * agent){
 }
 
 
-void Agent::draw(Bengine::SpriteBatch & m_spriteBatch) {
+void Agent::draw(Engine::SpriteBatch & m_spriteBatch) {
 
 	glm::vec4 uvRect(0.f, 0.f, 1.f, 1.f);
 	glm::vec4 destRect;

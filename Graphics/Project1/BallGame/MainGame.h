@@ -1,12 +1,12 @@
 #pragma once
 
-#include <Bengine/Camera2D.h>
-#include <Bengine/SpriteBatch.h>
-#include <Bengine/InputManager.h>
-#include <Bengine/Window.h>
-#include <Bengine/GLSLProgram.h>
-#include <Bengine/Timing.h>
-#include <Bengine/SpriteFont.h>
+#include <Engine/Camera2D.h>
+#include <Engine/SpriteBatch.h>
+#include <Engine/InputManager.h>
+#include <Engine/Window.h>
+#include <Engine/GLSLProgram.h>
+#include <Engine/Timing.h>
+#include <Engine/SpriteFont.h>
 #include <memory>
 
 #include "BallController.h"
@@ -48,14 +48,14 @@ private:
 
     BallController m_ballController; ///< Controls balls
 
-    Bengine::Window m_window; ///< The main window
-    Bengine::SpriteBatch m_spriteBatch; ///< Renders all the balls
-    std::unique_ptr<Bengine::SpriteFont> m_spriteFont; ///< For font rendering
-    Bengine::Camera2D m_camera; ///< Renders the scene
-    Bengine::InputManager m_inputManager; ///< Handles input
-    Bengine::GLSLProgram m_textureProgram; ///< Shader for textures]
+    Engine::Window m_window; ///< The main window
+    Engine::SpriteBatch m_spriteBatch; ///< Renders all the balls
+    std::unique_ptr<Engine::SpriteFont> m_spriteFont; ///< For font rendering
+    Engine::Camera2D m_camera; ///< Renders the scene
+    Engine::InputManager m_inputManager; ///< Handles input
+    Engine::GLSLProgram m_textureProgram; ///< Shader for textures]
 
-    Bengine::FpsLimiter m_fpsLimiter; ///< Limits and calculates fps
+    Engine::FpsLimiter m_fpsLimiter; ///< Limits and calculates fps
     float m_fps = 0.0f;
 
     GameState m_gameState = GameState::RUNNING; ///< The state of the game

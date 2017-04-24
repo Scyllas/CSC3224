@@ -15,8 +15,8 @@ void Box::init(
 	b2World* world, 
 	const glm::vec2& position, 
 	const glm::vec2& dimensions, 
-	Bengine::GLTexture texture, 
-	Bengine::ColorRGBA8 color, 
+	Engine::GLTexture texture, 
+	Engine::ColorRGBA8 color, 
 	bool fixedRotation, 
 	bool isDynamic,
 	float angle, /* = 0.0f */
@@ -26,6 +26,8 @@ void Box::init(
 	m_dimensions = dimensions;
 	m_color = color;
 	m_texture = texture;
+	m_fixedRotation = fixedRotation;
+	m_isDynamic = isDynamic;
 
 	//make body
 	b2BodyDef bodyDef;
@@ -56,7 +58,7 @@ void Box::destroy(b2World* world) {
 	world->DestroyBody(m_body);
 }
 
-void Box::draw(Bengine::SpriteBatch& spriteBatch)
+void Box::draw(Engine::SpriteBatch& spriteBatch)
 {
 	glm::vec4 destRect;
 	destRect.x = m_body->GetPosition().x - m_dimensions.x / 2.f;

@@ -11,7 +11,7 @@ Player::~Player()
 {
 }
 
-void Player::init(float speed, glm::vec2 pos, Bengine::InputManager* inputManager, Bengine::Camera2D* camera, std::vector<Bullet>* bullets) {
+void Player::init(float speed, glm::vec2 pos, Engine::InputManager* inputManager, Engine::Camera2D* camera, std::vector<Bullet>* bullets) {
 
 	m_health = 150;
 	m_camera = camera;
@@ -20,8 +20,8 @@ void Player::init(float speed, glm::vec2 pos, Bengine::InputManager* inputManage
 	m_position = pos;
 	m_inputManager = inputManager;
 
-	m_color = Bengine::ColorRGBA8(255, 255, 255, 255);
-	m_textureID = Bengine::ResourceManager::getTexture("Textures/player.png").id;
+	m_color = Engine::ColorRGBA8(255, 255, 255, 255);
+	m_textureID = Engine::ResourceManager::getTexture("Textures/player.png").id;
 
 }
 

@@ -1,16 +1,17 @@
 #pragma once
 #include <SDL\SDL.h>
 
-#include <Bengine/IGameScreen.h>
-#include <Bengine\ResourceManager.h>
-#include <Bengine\SpriteBatch.h>
-#include <Bengine\GLSLProgram.h>
-#include <Bengine\Camera2D.h>
-#include <Bengine\GLTexture.h>
-#include <Bengine/IMainGame.h>
-#include <Bengine\Window.h>
-#include <Bengine\DebugRenderer.h>
-#include <Bengine\GUI.h>
+#include <Engine/IGameScreen.h>
+#include <Engine\ResourceManager.h>
+#include <Engine\SpriteBatch.h>
+#include <Engine\GLSLProgram.h>
+#include <Engine\Camera2D.h>
+#include <Engine\GLTexture.h>
+#include <Engine/IMainGame.h>
+#include <Engine\Window.h>
+#include <Engine\DebugRenderer.h>
+#include <Engine\GUI.h>
+
 
 #include "ScreenIndices.h"
 #include "Box.h"
@@ -19,10 +20,10 @@
 #include <vector>
 #include <random>
 
-class GameplayScreen : public Bengine::IGameScreen{
+class GameplayScreen : public Engine::IGameScreen{
 
 public:
-	GameplayScreen(Bengine::Window* window);
+	GameplayScreen(Engine::Window* window);
 	~GameplayScreen();
 
 	virtual int getNextScreenIndex() const override;
@@ -46,14 +47,14 @@ private:
 
 	bool GameplayScreen::onExitClicked(const CEGUI::EventArgs& e);
 
-	Bengine::GLSLProgram m_textureProgram;
-	Bengine::GLSLProgram m_lightProgram;
-	Bengine::Camera2D m_camera;
-	Bengine::SpriteBatch m_spriteBatch;
-	Bengine::GLTexture m_texture;
-	Bengine::Window* m_window;
-	Bengine::DebugRenderer m_debugRenderer;
-	Bengine::GUI m_GUI;
+	Engine::GLSLProgram m_textureProgram;
+	Engine::GLSLProgram m_lightProgram;
+	Engine::Camera2D m_camera;
+	Engine::SpriteBatch m_spriteBatch;
+	Engine::GLTexture m_texture;
+	Engine::Window* m_window;
+	Engine::DebugRenderer m_debugRenderer;
+	Engine::GUI m_GUI;
 
 	bool m_renderDebug = false;
 

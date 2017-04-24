@@ -31,7 +31,7 @@ bool Bullet::collideWithAgent(Agent * agent)
 	return false;
 }
 
-void Bullet::draw(Bengine::SpriteBatch& spriteBatch) {
+void Bullet::draw(Engine::SpriteBatch& spriteBatch) {
 
 	glm::vec4 destRect(
 		m_position.x + BULLET_RADIUS,
@@ -39,11 +39,11 @@ void Bullet::draw(Bengine::SpriteBatch& spriteBatch) {
 		BULLET_RADIUS * 2,
 		BULLET_RADIUS * 2);
 	glm::vec4 uvRect(0.f, 0.f, 1.f, 1.f);
-	Bengine::ColorRGBA8 color = Bengine::ColorRGBA8(75, 75, 75, 255);
+	Engine::ColorRGBA8 color = Engine::ColorRGBA8(75, 75, 75, 255);
 
 	spriteBatch.draw(destRect,
 		uvRect,
-		Bengine::ResourceManager::getTexture("Textures/circle.png").id,
+		Engine::ResourceManager::getTexture("Textures/circle.png").id,
 		0.f,
 		color);
 }

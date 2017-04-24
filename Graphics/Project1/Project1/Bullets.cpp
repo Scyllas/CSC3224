@@ -1,5 +1,5 @@
 #include "Bullets.h"
-#include <Bengine\ResourceManager.h>
+#include <Engine\ResourceManager.h>
 
 
 Bullets::Bullets(glm::vec2 pos, glm::vec2 dir, float speed, int lifeTime) :
@@ -14,13 +14,13 @@ Bullets::~Bullets()
 }
 
 
-void Bullets::draw(Bengine::SpriteBatch & spriteBatch) {
+void Bullets::draw(Engine::SpriteBatch & spriteBatch) {
 
 
 	glm::vec4 uv(0.f, 0.f, 1.f, 1.f);
-	static Bengine::GLTexture texture = Bengine::ResourceManager::getTexture("Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
-	Bengine::ColorRGBA8 color;
-	color = Bengine::ColorRGBA8(255, 255, 255, 255);
+	static Engine::GLTexture texture = Engine::ResourceManager::getTexture("Textures/jimmyJump_pack/PNG/CharacterRight_Standing.png");
+	Engine::ColorRGBA8 color;
+	color = Engine::ColorRGBA8(255, 255, 255, 255);
 
 
 	glm::vec4 posAndSize = glm::vec4(m_position.x, m_position.y, 30, 30);

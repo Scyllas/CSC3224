@@ -1,4 +1,4 @@
-#include <Bengine/IMainGame.h>
+#include <Engine/IMainGame.h>
 #include "App.h"
 
 int main(int argc, char** argv) {

@@ -1,7 +1,7 @@
 #pragma once
 #include <glm\glm.hpp>
-#include <Bengine\SpriteBatch.h>
-#include <Bengine\ResourceManager.h>
+#include <Engine\SpriteBatch.h>
+#include <Engine\ResourceManager.h>
 #include "Level.h"
 #include <algorithm>
 
@@ -27,7 +27,7 @@ public:
 
 	bool collideWithAgent(Agent* agent);
 
-	void draw(Bengine::SpriteBatch& m_spriteBatch);
+	void draw(Engine::SpriteBatch& m_spriteBatch);
 
 	bool applyDamage(float damage);
 
@@ -44,7 +44,7 @@ protected:
 	glm::vec2 m_position;
 	glm::vec2 m_direction = glm::vec2(1.f, 0.f);
 	float m_speed;
-	Bengine::ColorRGBA8 m_color;
+	Engine::ColorRGBA8 m_color;
 	float m_health;
 	GLuint m_textureID;
 

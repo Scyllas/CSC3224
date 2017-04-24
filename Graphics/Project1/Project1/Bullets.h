@@ -1,6 +1,6 @@
 #pragma once
 #include <glm\glm.hpp>
-#include <Bengine\SpriteBatch.h>
+#include <Engine\SpriteBatch.h>
 
 
 class Bullets
@@ -11,7 +11,7 @@ public:
 
 	glm::vec2 getPosition() { return m_position; }
 
-	void draw(Bengine::SpriteBatch& spriteBatch);
+	void draw(Engine::SpriteBatch& spriteBatch);
 	bool update();//returns true on death
 
 private:

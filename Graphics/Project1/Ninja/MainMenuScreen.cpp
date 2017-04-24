@@ -1,6 +1,6 @@
 #include "MainMenuScreen.h"
 
-MainMenuScreen::MainMenuScreen(Bengine::Window* window) : m_window(window) {
+MainMenuScreen::MainMenuScreen(Engine::Window* window) : m_window(window) {
 	m_screenIndex = SCREEN_INDEX_MAINMENU;
 }
 
@@ -29,6 +29,10 @@ void MainMenuScreen::onEntry() {
 	m_camera.setScale(32.0f);
 
 	initUI();
+
+	m_audioEngine.init();
+	Engine::Music music = m_audioEngine.loadMusic("Sound/XYZ.ogg");
+	music.play(-1);
 }
 
 void MainMenuScreen::onExit() {
@@ -87,17 +91,17 @@ void MainMenuScreen::checkInput() {
 
 bool MainMenuScreen::onNewGameClicked(const CEGUI::EventArgs& e) {
 	m_nextScreenIndex = SCREEN_INDEX_GAMEPLAY;
-	m_currentState = Bengine::ScreenState::CHANGE_NEXT;
+	m_currentState = Engine::ScreenState::CHANGE_NEXT;
 	return true;
 }
 
 bool MainMenuScreen::onEditorClicked(const CEGUI::EventArgs& e) {
 	m_nextScreenIndex = SCREEN_INDEX_EDITOR;
-	m_currentState = Bengine::ScreenState::CHANGE_NEXT;
+	m_currentState = Engine::ScreenState::CHANGE_NEXT;
 	return true;
 }
 
 bool MainMenuScreen::onExitClicked(const CEGUI::EventArgs& e) {
-	m_currentState = Bengine::ScreenState::EXIT_APPLICATION;
+	m_currentState = Engine::ScreenState::EXIT_APPLICATION;
 	return true;
 }

@@ -52,8 +52,8 @@ void Capsule::destroy(b2World* world) {
 	}
 }
 
-void Capsule::drawDebug(Bengine::DebugRenderer& debugRenderer) {
-	Bengine::ColorRGBA8 color(255, 255, 255, 255);
+void Capsule::drawDebug(Engine::DebugRenderer& debugRenderer) {
+	Engine::ColorRGBA8 color(255, 255, 255, 255);
 	glm::vec4 destRect;
 	destRect.x = m_body->GetPosition().x - m_dimensions.x / 2.f;
 	destRect.y = m_body->GetPosition().y - (m_dimensions.y - m_dimensions.x) / 2.f;

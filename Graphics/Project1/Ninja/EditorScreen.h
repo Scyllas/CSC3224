@@ -3,20 +3,25 @@
 #include "Box.h"
 #include "Light.h"
 #include "PlayerChar.h"
+#include "LevelReaderWriter.h"
 
-#include <Bengine/Camera2D.h>
-#include <Bengine/DebugRenderer.h>
-#include <Bengine/GLSLProgram.h>
-#include <Bengine/GLTexture.h>
-#include <Bengine/IGameScreen.h>
-#include <Bengine/InputManager.h>
-#include <Bengine/ResourceManager.h>
-#include <Bengine/SpriteBatch.h>
-#include <Bengine/SpriteFont.h>
-#include <Bengine/Window.h>
+#include <Engine/Camera2D.h>
+#include <Engine/DebugRenderer.h>
+#include <Engine/GLSLProgram.h>
+#include <Engine/GLTexture.h>
+#include <Engine/GUI.h>
+#include <Engine/IGameScreen.h>
+#include <Engine/IOManager.h>
+#include <Engine/InputManager.h>
+#include <Engine/ResourceManager.h>
+#include <Engine/SpriteBatch.h>
+#include <Engine/SpriteFont.h>
+#include <Engine/Window.h>
+
 #include <vector>
+#include <iostream>
 
-#include <Bengine/GUI.h>
+
 
 #include "ScreenIndices.h"
 
@@ -46,22 +51,25 @@ enum class SelectionMode {
 const int NO_BOX = -1;
 const int NO_LIGHT = -1;
 
+
 class WidgetLabel {
 public:
 	WidgetLabel() {};
 	WidgetLabel(CEGUI::Window* w, const std::string& text, float scale) : widget(w), text(text), scale(scale) {};
 
-	void draw(Bengine::SpriteBatch& sb, Bengine::SpriteFont& sf, Bengine::Window* w);
+	void draw(Engine::SpriteBatch& sb, Engine::SpriteFont& sf, Engine::Window* w);
 
 	CEGUI::Window* widget = nullptr;
 	std::string text = "";
-	Bengine::ColorRGBA8 color = Bengine::ColorRGBA8(255, 255, 255, 255);
+	Engine::ColorRGBA8 color = Engine::ColorRGBA8(255, 255, 255, 255);
 	float scale = 0.7f;
+
+
 };
 
-class EditorScreen : public Bengine::IGameScreen {
+class EditorScreen : public Engine::IGameScreen {
 public:
-	EditorScreen(Bengine::Window* window);
+	EditorScreen(Engine::Window* window);
 	~EditorScreen();
 
 	//IGameScreen Implementation               
@@ -75,10 +83,14 @@ public:
 	virtual void update() override;
 	virtual void draw() override;
 
+	bool initCheck = false;
+
 private:
 
 	void drawUI();
 	void drawWorld();
+
+	void clearLevel();
 
 	void initUI();
 	void checkInput();
@@ -116,6 +128,7 @@ private:
 	bool onSelectMouseClick(const CEGUI::EventArgs& e);
 	bool onPlaceMouseClick(const CEGUI::EventArgs& e);
 	bool onSaveMouseClick(const CEGUI::EventArgs& e);
+	bool onLoadMouseClick(const CEGUI::EventArgs& e);
 	bool onBackMouseClick(const CEGUI::EventArgs& e);
 
 	bool onRotationValueChange(const CEGUI::EventArgs& e);
@@ -124,6 +137,11 @@ private:
 	bool onHeightValueChange(const CEGUI::EventArgs& e);
 
 	bool onDebugToggleClick(const CEGUI::EventArgs& e);
+
+	bool onSaveCancelClick(const CEGUI::EventArgs& e);
+	bool onSave(const CEGUI::EventArgs& e);
+	bool onLoadCancelClick(const CEGUI::EventArgs& e);
+	bool onLoad(const CEGUI::EventArgs& e);
 
 
 	// Member Variables                                                     
@@ -163,25 +181,40 @@ private:
 	CEGUI::Spinner* m_heightSpinner = nullptr;
 	CEGUI::Spinner* m_sizeSpinner = nullptr;
 
+	CEGUI::FrameWindow* m_saveWindow = nullptr;
+	CEGUI::FrameWindow* m_loadWindow = nullptr;
+
+	CEGUI::PushButton* m_saveWindowSaveButton = nullptr;
+	CEGUI::PushButton* m_loadWindowLoadButton = nullptr;
+	CEGUI::PushButton* m_saveButton = nullptr;
+	CEGUI::PushButton* m_loadButton = nullptr;
+	CEGUI::PushButton* m_backButton = nullptr;
+
+	CEGUI::Combobox* m_saveWindowCombobox = nullptr;
+	CEGUI::Combobox* m_loadWindowCombobox = nullptr;
+
+	std::vector<CEGUI::ListboxTextItem*> m_saveListBoxItems;
+	std::vector<CEGUI::ListboxTextItem*> m_loadListBoxItems;
+
 	std::vector<WidgetLabel> m_widgetLabels;
 
-	Bengine::SpriteBatch m_spriteBatch;
-	Bengine::SpriteFont m_spriteFont;
+	Engine::SpriteBatch m_spriteBatch;
+	Engine::SpriteFont m_spriteFont;
 
-	Bengine::GLSLProgram m_textureProgram;
-	Bengine::GLSLProgram m_lightProgram;
+	Engine::GLSLProgram m_textureProgram;
+	Engine::GLSLProgram m_lightProgram;
 
-	Bengine::DebugRenderer m_debugRenderer;
+	Engine::DebugRenderer m_debugRenderer;
 
-	Bengine::GLTexture m_blankTexture;
+	Engine::GLTexture m_blankTexture;
 
 	PhysicsMode m_physicsMode = PhysicsMode::RIGID;
 	ObjectMode m_objectMode = ObjectMode::PLAYER;
 	SelectionMode m_selectMode = SelectionMode::SELECT;
 
-	Bengine::InputManager m_inputManager;
+	Engine::InputManager m_inputManager;
 
-	
+
 	PlayerChar m_player;
 
 	std::vector<Box> m_boxes;
@@ -193,14 +226,16 @@ private:
 	bool m_isDragging = false;
 	bool m_hasPlayer = false;
 
+	
+
 	glm::vec2 m_selectOffset;
 
-	Bengine::Camera2D m_camera;
-	Bengine::Camera2D m_uiCamera;
+	Engine::Camera2D m_camera;
+	Engine::Camera2D m_uiCamera;
 
-	Bengine::Window* m_window;
+	Engine::Window* m_window;
 
-	Bengine::GUI m_GUI;
+	Engine::GUI m_GUI;
 
 	std::unique_ptr<b2World> m_world;
 

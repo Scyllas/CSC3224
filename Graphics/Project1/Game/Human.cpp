@@ -18,8 +18,8 @@ void Human::init(float speed, glm::vec2 pos)
 
 	static std::uniform_real_distribution<float> randDir(-1.f, 1.f);
 
-	m_color = Bengine::ColorRGBA8(255, 255, 255, 255);
-	m_textureID = Bengine::ResourceManager::getTexture("Textures/human.png").id;
+	m_color = Engine::ColorRGBA8(255, 255, 255, 255);
+	m_textureID = Engine::ResourceManager::getTexture("Textures/human.png").id;
 
 
 	m_health = 20;

@@ -161,7 +161,7 @@ void MainGame::processInput() {
 
 void MainGame::initSystems() {
 
-	Bengine::init();
+	Engine::init();
 
 	m_audioEngine.init();
 
@@ -174,7 +174,7 @@ void MainGame::initSystems() {
 	m_spriteBatch.init();
 	m_hudSpriteBatch.init();
 
-	//m_spriteFont = new Bengine::SpriteFont("Fonts/ASMAN.ttf", 32);
+	//m_spriteFont = new Engine::SpriteFont("Fonts/ASMAN.ttf", 32);
 
 	m_fpsLimiter.setMaxFPS(m_maxFPS);
 	m_camera.init(m_screenWidth, m_screenHeight);
@@ -215,9 +215,9 @@ void MainGame::drawGame() {
 
 	glm::vec4 pos(0.f, 0.f, 50.f, 50.f);
 	glm::vec4 uv(0.f, 0.f, 1.f, 1.f);
-	static Bengine::GLTexture texture = Bengine::ResourceManager::getTexture("Textures/jimmyJumpm_pack/PNG/CharacterRightm_Standing.png");
-	Bengine::ColorRGBA8 color;
-	color = Bengine::ColorRGBA8(255, 255, 255, 255);
+	static Engine::GLTexture texture = Engine::ResourceManager::getTexture("Textures/jimmyJumpm_pack/PNG/CharacterRightm_Standing.png");
+	Engine::ColorRGBA8 color;
+	color = Engine::ColorRGBA8(255, 255, 255, 255);
 
 
 	m_spriteBatch.draw(pos, uv, texture.id, 0.f, color);
@@ -249,7 +249,7 @@ void MainGame::drawHudGfx() {
 	
 	m_spriteFont->draw(
 		m_hudSpriteBatch, buffer, glm::vec2(300,300), 
-		glm::vec2(4.f), 0.f, Bengine::ColorRGBA8(255,255,255,255));
+		glm::vec2(4.f), 0.f, Engine::ColorRGBA8(255,255,255,255));
 
 	m_hudSpriteBatch.end();
 	m_hudSpriteBatch.renderBatch();

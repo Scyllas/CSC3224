@@ -5,10 +5,11 @@ void PlayerChar::init(b2World* world,
 	const glm::vec2& position, 
 	const glm::vec2& drawDims, 
 	glm::vec2& collisionDims, 
-	Bengine::ColorRGBA8 color) {
-	Bengine::GLTexture texture = Bengine::ResourceManager::getTexture("Assets/blue_ninja.png");
+	Engine::ColorRGBA8 color) {
+	Engine::GLTexture texture = Engine::ResourceManager::getTexture("Assets/blue_ninja.png");
 	m_color = color;
 	m_drawDims = drawDims;
+	m_collisionDims = collisionDims;
 	m_capsule.init(world, position, collisionDims, 1.f, 0.1f, true);
 	m_texture.init(texture, glm::ivec2(10, 2));
 }
@@ -17,7 +18,7 @@ void PlayerChar::destroy(b2World* world) {
 	m_capsule.destroy(world);
 }
 
-void PlayerChar::draw(Bengine::SpriteBatch& spriteBatch) {
+void PlayerChar::draw(Engine::SpriteBatch& spriteBatch) {
 
 	glm::vec4 destRect;
 	b2Body* body = m_capsule.getBody();
@@ -120,13 +121,13 @@ void PlayerChar::draw(Bengine::SpriteBatch& spriteBatch) {
 
 }
 
-void PlayerChar::drawDebug(Bengine::DebugRenderer & debugRenderer) {
+void PlayerChar::drawDebug(Engine::DebugRenderer & debugRenderer) {
 
 	m_capsule.drawDebug(debugRenderer);
 
 }
 
-void PlayerChar::update(Bengine::InputManager & inputManager) {
+void PlayerChar::update(Engine::InputManager & inputManager) {
 
 	b2Body* body = m_capsule.getBody();
 

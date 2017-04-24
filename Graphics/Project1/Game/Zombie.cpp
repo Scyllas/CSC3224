@@ -16,8 +16,8 @@ void Zombie::init(float speed, glm::vec2 pos)
 	m_health = 150;
 	m_speed = speed;
 	m_position = pos;
-	m_color = Bengine::ColorRGBA8(255, 255, 255, 255);
-	m_textureID = Bengine::ResourceManager::getTexture("Textures/zombie.png").id;
+	m_color = Engine::ColorRGBA8(255, 255, 255, 255);
+	m_textureID = Engine::ResourceManager::getTexture("Textures/zombie.png").id;
 
 }
 

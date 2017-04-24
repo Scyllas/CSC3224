@@ -28,7 +28,7 @@ void MainGame::run() {
 
 	initLevel();
 
-	Bengine::Music music = m_audioEngine.loadMusic("Sound/XYZ.ogg");
+	Engine::Music music = m_audioEngine.loadMusic("Sound/XYZ.ogg");
 	music.play(-1);
 
 	gameLoop();
@@ -37,7 +37,7 @@ void MainGame::run() {
 
 
 void MainGame::initSystems() {
-	Bengine::init();
+	Engine::init();
 
 	m_audioEngine.init();
 
@@ -48,17 +48,17 @@ void MainGame::initSystems() {
 	m_agentSpriteBatch.init();
 	m_hudSpriteBatch.init();
 
-	m_spriteFont = new Bengine::SpriteFont("Fonts/comicate.ttf", 64);
+	m_spriteFont = new Engine::SpriteFont("Fonts/comicate.ttf", 64);
 
 	m_camera.init(m_screenWidth, m_screenHeight);
 	m_hudCamera.init(m_screenWidth, m_screenHeight);
 	m_hudCamera.setPosition(glm::vec2(m_screenWidth / 2, m_screenHeight / 2));
 
-	m_bloodParticleBatch = new Bengine::ParticleBatch2D;
+	m_bloodParticleBatch = new Engine::ParticleBatch2D;
 	m_bloodParticleBatch->init(1000,
 		0.05f,
-		Bengine::ResourceManager::getTexture("Textures/particle.png"),
-		[](Bengine::Particle2D& particle, float deltaTime) {
+		Engine::ResourceManager::getTexture("Textures/particle.png"),
+		[](Engine::Particle2D& particle, float deltaTime) {
 		particle.position += particle.velocity * deltaTime;
 		particle.color.a = (GLubyte)(particle.life * 255.f);
 	});
@@ -115,7 +115,7 @@ void MainGame::initShaders() {
 void MainGame::gameLoop() {
 
 
-	Bengine::FpsLimiter fpsLimiter;
+	Engine::FpsLimiter fpsLimiter;
 
 	const float DESIRED_FPS = 60.f;
 	const int MAX_PHYSICS_STEPS = 6;
@@ -182,7 +182,7 @@ void MainGame::checkVictory() {
 	if (m_zombies.empty()) {
 		std::printf("************ WINNER, YOU KILLED %d ZOMBIES AND MURDERED %d HUMANS, THE ZOMBIES TURNED %d PEOPLE",
 			m_numZombiesKilled, m_numHumansKilled, m_numHumansConverted);
-		Bengine::fatalError("");
+		Engine::fatalError("");
 	}
 }
 void MainGame::updateAgents(float deltaTime) {
@@ -218,7 +218,7 @@ void MainGame::updateAgents(float deltaTime) {
 
 		//collide with player
 		if (m_zombies[i]->collideWithAgent(m_player)) {
-			Bengine::fatalError("You Lose");
+			Engine::fatalError("You Lose");
 		}
 
 	}
@@ -407,13 +407,13 @@ void MainGame::drawHud() {
 
 	m_spriteFont->draw(
 		m_hudSpriteBatch, buffer, glm::vec2(0, 0),
-		glm::vec2(0.5f), 0.f, Bengine::ColorRGBA8(255, 255, 255, 255));
+		glm::vec2(0.5f), 0.f, Engine::ColorRGBA8(255, 255, 255, 255));
 
 	sprintf_s(buffer, "%f", m_fps);
 
 	m_spriteFont->draw(
 		m_hudSpriteBatch, buffer, glm::vec2(0, 36),
-		glm::vec2(0.5f), 0.f, Bengine::ColorRGBA8(255, 255, 255, 255));
+		glm::vec2(0.5f), 0.f, Engine::ColorRGBA8(255, 255, 255, 255));
 
 	m_hudSpriteBatch.end();
 	m_hudSpriteBatch.renderBatch();
@@ -428,7 +428,7 @@ void MainGame::addBlood(const glm::vec2 & position, int numParticles) {
 
 	glm::vec2 vel(2.f, 0.f);
 	glm::rotate(vel, randAngle(randEngine));
-	Bengine::ColorRGBA8 col(255, 0, 0, 255);
+	Engine::ColorRGBA8 col(255, 0, 0, 255);
 
 	for (int i = 0; i < numParticles; i++) {
 		m_bloodParticleBatch->addParticle(position, glm::rotate(vel, randAngle(randEngine)), col, 30.f);

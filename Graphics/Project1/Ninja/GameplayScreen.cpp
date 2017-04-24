@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-GameplayScreen::GameplayScreen(Bengine::Window * window) :m_window(window) {
+GameplayScreen::GameplayScreen(Engine::Window * window) :m_window(window) {
 
 	m_screenIndex = SCREEN_INDEX_GAMEPLAY;
 
@@ -47,7 +47,7 @@ void GameplayScreen::onEntry() {
 	groundBody->CreateFixture(&groundBox, 0.f);
 
 	//load texture
-	m_texture = Bengine::ResourceManager::getTexture("Assets/bricks_top.png");
+	m_texture = Engine::ResourceManager::getTexture("Assets/bricks_top.png");
 
 	//make multiple boxes
 	std::mt19937 randGenerator;
@@ -61,7 +61,7 @@ void GameplayScreen::onEntry() {
 
 	for (int i = 0; i < NUM_BOXES; i++) {
 
-		Bengine::ColorRGBA8 randColor = Bengine::ColorRGBA8(color(randGenerator), color(randGenerator), color(randGenerator), 255);
+		Engine::ColorRGBA8 randColor = Engine::ColorRGBA8(color(randGenerator), color(randGenerator), color(randGenerator), 255);
 		Box newBox;
 		newBox.init(m_world.get(), glm::vec2(xPos(randGenerator), yPos(randGenerator)), glm::vec2(size(randGenerator), size(randGenerator)), m_texture, randColor, false, true);
 		m_boxes.push_back(newBox);
@@ -91,7 +91,7 @@ void GameplayScreen::onEntry() {
 	m_camera.setScale(32.f);
 
 	//init player
-	m_player.init(m_world.get(), glm::vec2(0.0f, 30.0f), glm::vec2(2.0f), glm::vec2(1.0f, 1.8f), Bengine::ColorRGBA8(255, 255, 255, 255));
+	m_player.init(m_world.get(), glm::vec2(0.0f, 30.0f), glm::vec2(2.0f), glm::vec2(1.0f, 1.8f), Engine::ColorRGBA8(255, 255, 255, 255));
 
 	initUI();
 
@@ -151,7 +151,7 @@ void GameplayScreen::draw() {
 			destRect.y = b.getBody()->GetPosition().y - b.getDimensions().y / 2.f;
 			destRect.z = b.getDimensions().x;
 			destRect.w = b.getDimensions().y;
-			m_debugRenderer.drawBox(destRect, Bengine::ColorRGBA8(255, 255, 255, 255), b.getBody()->GetAngle());
+			m_debugRenderer.drawBox(destRect, Engine::ColorRGBA8(255, 255, 255, 255), b.getBody()->GetAngle());
 
 		}
 		//render player
@@ -161,12 +161,12 @@ void GameplayScreen::draw() {
 		m_debugRenderer.render(projectionMatrix, 2.f);
 	}
 	Light playerLight;
-	playerLight.color = Bengine::ColorRGBA8(255, 255, 255, 128);
+	playerLight.color = Engine::ColorRGBA8(255, 255, 255, 128);
 	playerLight.position = m_player.getPosition();
 	playerLight.size = 30.0f;
 
 	Light mouseLight;
-	mouseLight.color = Bengine::ColorRGBA8(255, 0, 255, 150);
+	mouseLight.color = Engine::ColorRGBA8(255, 0, 255, 150);
 	mouseLight.position = m_camera.convertScreenToWorld(m_game->inputManager.getMouseCoords());
 	mouseLight.size = 45.0f;
 
@@ -229,7 +229,7 @@ void GameplayScreen::initUI() {
 bool GameplayScreen::onExitClicked(const CEGUI::EventArgs& e) {
 
 	//std::cout << "User Quit\n";
-	m_currentState = Bengine::ScreenState::EXIT_APPLICATION;
+	m_currentState = Engine::ScreenState::EXIT_APPLICATION;
 
 	return true;
 }
